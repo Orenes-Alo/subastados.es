@@ -7,6 +7,9 @@ Precio: 450 €/año o 45 €/mes, con 24 horas de prueba gratuita en la primera
 ## Enlaces
 
 - [Landing](https://subastados.es/): qué incluye, ejemplo real del motor sobre un lote vivo, comparativa frente a buscar a mano en el BOE, precios y FAQ
+- [Cómo funciona](https://subastados.es/como-funciona/): los 5 pasos del motor Pujable explicados con el caso real de Marbella
+- [Precios](https://subastados.es/precios/): 450 €/año (equivale a 37,50 €/mes) o 45 €/mes sin permanencia, todo incluido
+- [FAQ](https://subastados.es/faq/): qué necesito para pujar, qué calcula el motor, prueba de 24 h, pago y cancelación
 - [Plataforma](https://inversionnpl.com/dashboard/subastas-scraper): donde se usa el producto tras suscribirse
 - [InversionNPL](https://inversionnpl.com/): la plataforma matriz ([llms.txt](https://inversionnpl.com/llms.txt))
 

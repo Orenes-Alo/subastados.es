@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precios de Subastados: 450 €/año o 45 €/mes, todo incluido</title>
+<meta name="description" content="Subastas Scraper + motor Pujable + guía de puja del BOE: 450 €/año (equivale a 37,50 €/mes) o 45 €/mes sin permanencia. Primera suscripción con 24 h de prueba gratis: 0 € hoy.">
+<meta property="og:title" content="Precios de Subastados">
+<meta property="og:description" content="450 €/año o 45 €/mes, todo incluido, con 24 h de prueba gratis en la primera suscripción.">
+<meta property="og:url" content="https://subastados.es/precios/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://subastados.es/og.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://subastados.es/precios/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://subastados.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Precios", "item": "https://subastados.es/precios/" }
+    ]},
+    { "@type": "Product",
+      "name": "Subastas Scraper + Pujable",
+      "description": "Subastas judiciales y notariales del BOE organizadas y filtrables, con el motor de decisión de puja Pujable y la guía de formación para pujar en el BOE en PDF.",
+      "brand": { "@type": "Brand", "name": "InversionNPL" },
+      "image": "https://subastados.es/og.png",
+      "offers": [
+        { "@type": "Offer", "price": "450", "priceCurrency": "EUR", "url": "https://subastados.es/precios/", "availability": "https://schema.org/InStock", "description": "Suscripción anual (equivale a 37,50 €/mes), con 24 horas de prueba gratuita en la primera suscripción" },
+        { "@type": "Offer", "price": "45", "priceCurrency": "EUR", "url": "https://subastados.es/precios/", "availability": "https://schema.org/InStock", "description": "Suscripción mensual sin permanencia" }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0F172A;--blue:#2563EB;--blue-l:#93C5FD;--ink:#0F172A;--body:#334155;--muted:#64748B;--line:#E2E8F0;--bg:#F8FAFC;--green:#059669}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Outfit',-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--body);background:var(--bg);line-height:1.65}
+  a{color:var(--blue)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+  header{background:var(--navy);padding:13px 0}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .brand{color:#fff;font-weight:800;font-size:19px;text-decoration:none}
+  .brand em{color:var(--blue-l);font-style:normal}
+  .brand small{font-size:11px;font-weight:500;color:#94A3B8;margin-left:6px}
+  nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  nav a{color:#CBD5E1;text-decoration:none;font-size:13.5px;font-weight:600}
+  nav a.cta{background:var(--blue);color:#fff;padding:8px 14px;border-radius:10px;font-weight:700}
+  h1{font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.2;margin:26px 0 8px}
+  h2{font-size:20px;font-weight:800;color:var(--ink);margin:26px 0 10px}
+  p{margin-bottom:12px}
+  ul{margin:0 0 14px 22px}
+  li{margin-bottom:7px}
+  .capsula{background:#EFF6FF;border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:13px 16px;margin:12px 0 20px;font-size:15px;color:#1E293B}
+  .planes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:20px 0}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;position:relative}
+  .plan.destacado{border:2px solid var(--blue);box-shadow:0 8px 30px rgba(37,99,235,.12)}
+  .plan .badge{position:absolute;top:-11px;left:20px;background:var(--blue);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+  .plan h2{margin:0 0 4px;font-size:17px}
+  .plan .precio{font-size:34px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+  .plan .precio small{font-size:14px;font-weight:600;color:var(--muted)}
+  .plan .equiv{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+  .plan ul{list-style:none;margin:12px 0 16px;padding:0;font-size:13.5px}
+  .plan li{padding-left:20px;position:relative;margin-bottom:6px}
+  .plan li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+  .plan a.btn{display:block;text-align:center;background:var(--blue);color:#fff;text-decoration:none;font-weight:800;font-size:14px;padding:11px;border-radius:10px}
+  .plan a.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .trial{background:#ECFDF5;border:1px solid #A7F3D0;border-radius:12px;padding:12px 16px;font-size:14px;color:#065F46;margin:6px 0 18px}
+  footer{border-top:1px solid var(--line);margin-top:36px;padding:22px 0 30px;font-size:12px;color:#94A3B8}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="/" class="brand">Subastados<em>.</em> <small>by InversionNPL</small></a>
+    <nav>
+      <a href="/como-funciona/">Cómo funciona</a>
+      <a href="/precios/">Precios</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/#precio" class="cta">Suscribirme</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Precios: un solo producto, todo incluido</h1>
+<p class="capsula">Subastados cuesta 450 €/año (equivale a 37,50 €/mes) o 45 €/mes sin permanencia. Ambos planes incluyen exactamente lo mismo: las subastas del BOE organizadas, el motor de decisión de puja Pujable en cada lote y la guía de formación para pujar en el BOE. La primera suscripción lleva 24 horas de prueba: pagas 0 € hoy.</p>
+<div class="trial">🎁 <b>Prueba de 24 horas en tu primera suscripción</b>: hoy pagas 0 €, exploras todo el producto, y solo si no cancelas antes de que acabe la prueba se cobra la cuota. Sin letra pequeña.</div>
+<div class="planes">
+  <div class="plan destacado">
+    <span class="badge">Recomendado · ahorras 90 €</span>
+    <h2>Anual</h2>
+    <div class="precio">450 € <small>/año</small></div>
+    <div class="equiv">equivale a 37,50 €/mes</div>
+    <ul>
+      <li>+1.000 subastas activas del BOE, filtrables</li>
+      <li>Motor Pujable en la ficha de cada lote</li>
+      <li>Precio máximo de puja para tu TIR objetivo</li>
+      <li>Fotos y datos del Catastro enlazados</li>
+      <li>Guía de puja del BOE en PDF (LO 1/2025)</li>
+      <li>Soporte por email y WhatsApp</li>
+    </ul>
+    <a class="btn" href="/#precio">Empezar la prueba de 24 h →</a>
+  </div>
+  <div class="plan">
+    <h2>Mensual</h2>
+    <div class="precio">45 € <small>/mes</small></div>
+    <div class="equiv">sin permanencia — cancela cuando quieras</div>
+    <ul>
+      <li>Todo lo del plan anual</li>
+      <li>Ideal para probar unos meses o para una operación puntual</li>
+      <li>Cancelación en un clic desde tu perfil</li>
+    </ul>
+    <a class="btn ghost" href="/#precio">Suscribirme por meses →</a>
+  </div>
+</div>
+<h2>Preguntas rápidas sobre el pago</h2>
+<ul>
+<li><b>¿Cómo se paga?</b> Con tarjeta, mediante Stripe (la misma pasarela de pago que usan millones de negocios). Recibes el recibo por email en cada cargo.</li>
+<li><b>¿Dónde se usa el producto?</b> Dentro de la plataforma InversionNPL: tras el pago, el acceso se activa en tu cuenta (o te ayudamos a crearla gratis con el email del pago).</li>
+<li><b>¿Solo te interesa un lote concreto?</b> Dentro de la plataforma existe el informe individual de subasta por 29 €, sin suscripción. <a href="https://inversionnpl.com/dashboard/subastas-scraper">Más información aquí</a>.</li>
+<li><b>¿Puedo cancelar?</b> Sí, en cualquier momento; mantienes el acceso hasta el final del periodo pagado. Más detalles en la <a href="/faq/">FAQ</a>.</li>
+</ul>
+<p style="font-size:12.5px;color:var(--muted)">Subastados es una herramienta de análisis y organización de subastas públicas; no constituye asesoramiento de inversión ni tasación oficial.</p>
+</main>
+<footer>
+  <div class="wrap">© Subastados · un producto de <a href="https://inversionnpl.com">InversionNPL</a> · <a href="/como-funciona/">Cómo funciona</a> · <a href="/precios/">Precios</a> · <a href="/faq/">FAQ</a> · <a href="mailto:soporte@inversionnpl.com">soporte@inversionnpl.com</a></div>
+</footer>
+</body>
+</html>

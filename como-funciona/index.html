@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo funciona Subastados: del edicto del BOE al precio máximo de puja</title>
+<meta name="description" content="Los 5 pasos del motor Pujable: subastas del BOE organizadas, valor de mercado por testigos reales, coste total con ITP, plazos del CGPJ y precio máximo de puja para tu TIR objetivo. Con un caso real.">
+<meta property="og:title" content="Cómo funciona Subastados, paso a paso">
+<meta property="og:description" content="Del edicto del BOE al precio máximo de puja: así calcula el motor Pujable, explicado con un lote real de Marbella.">
+<meta property="og:url" content="https://subastados.es/como-funciona/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://subastados.es/og.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://subastados.es/como-funciona/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://subastados.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Cómo funciona", "item": "https://subastados.es/como-funciona/" }
+    ]},
+    { "@type": "Article",
+      "headline": "Cómo funciona Subastados: del edicto del BOE al precio máximo de puja",
+      "description": "Los 5 pasos del motor Pujable explicados con un lote real del Portal de Subastas del BOE.",
+      "author": { "@type": "Organization", "name": "InversionNPL" },
+      "publisher": { "@type": "Organization", "name": "Subastados", "url": "https://subastados.es/" },
+      "mainEntityOfPage": "https://subastados.es/como-funciona/",
+      "inLanguage": "es-ES" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0F172A;--blue:#2563EB;--blue-l:#93C5FD;--ink:#0F172A;--body:#334155;--muted:#64748B;--line:#E2E8F0;--bg:#F8FAFC;--green:#059669}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Outfit',-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--body);background:var(--bg);line-height:1.65}
+  a{color:var(--blue)}
+  .wrap{max-width:840px;margin:0 auto;padding:0 20px}
+  header{background:var(--navy);padding:13px 0}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .brand{color:#fff;font-weight:800;font-size:19px;text-decoration:none}
+  .brand em{color:var(--blue-l);font-style:normal}
+  .brand small{font-size:11px;font-weight:500;color:#94A3B8;margin-left:6px}
+  nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  nav a{color:#CBD5E1;text-decoration:none;font-size:13.5px;font-weight:600}
+  nav a.cta{background:var(--blue);color:#fff;padding:8px 14px;border-radius:10px;font-weight:700}
+  h1{font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.2;margin:26px 0 14px}
+  h2{font-size:21px;font-weight:800;color:var(--ink);margin:28px 0 10px}
+  p{margin-bottom:12px}
+  ul,ol{margin:0 0 14px 22px}
+  li{margin-bottom:7px}
+  .capsula{background:#EFF6FF;border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:13px 16px;margin:0 0 18px;font-size:15px;color:#1E293B}
+  .paso{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+  .paso .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--navy);color:#fff;font-weight:800;font-size:14px;margin-right:10px}
+  .paso h2{margin:0 0 8px;font-size:18px;display:flex;align-items:center}
+  .ejemplo{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:13px 16px;margin:10px 0 0;font-size:14px}
+  .ejemplo b{color:var(--ink)}
+  .cta-final{background:linear-gradient(120deg,#0F172A,#1E3A8A);border-radius:16px;padding:24px;color:#CBD5E1;margin:30px 0;font-size:14.5px}
+  .cta-final b{color:#fff}
+  .cta-final a.btn{display:inline-block;margin-top:12px;background:#fff;color:var(--ink);text-decoration:none;font-weight:800;font-size:14px;padding:11px 18px;border-radius:10px}
+  footer{border-top:1px solid var(--line);margin-top:36px;padding:22px 0 30px;font-size:12px;color:#94A3B8}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="/" class="brand">Subastados<em>.</em> <small>by InversionNPL</small></a>
+    <nav>
+      <a href="/como-funciona/">Cómo funciona</a>
+      <a href="/precios/">Precios</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/#precio" class="cta">Suscribirme</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Cómo funciona Subastados: del edicto del BOE al precio máximo de puja</h1>
+<p class="capsula">Subastados lee las subastas del Portal del BOE, valora cada inmueble con testigos reales de su zona, suma el coste total de adquisición (ITP de la comunidad, posesión, gastos), estima el plazo con datos del CGPJ del partido judicial concreto y te devuelve dos números por lote: el mínimo para adjudicarte y el precio máximo de puja para tu rentabilidad objetivo.</p>
+<p>Cualquiera puede abrir subastas.boe.es gratis. El problema nunca ha sido ver las subastas: es saber, para cada una, <b>hasta cuánto pujar</b>. Eso exige valorar el inmueble, calcular todos los costes, estimar cuánto tardarás en venderlo y descontarlo todo a una rentabilidad razonable — un trabajo de horas por lote que el motor hace en segundos. Así, paso a paso:</p>
+
+<div class="paso">
+<h2><span class="num">1</span> El Scraper organiza lo que el BOE desordena</h2>
+<p>Las subastas judiciales y notariales del Portal del BOE (más de 1.000 activas) entran organizadas y filtrables: por provincia, tipo de bien, valor de subasta y fecha de cierre. Cada tarjeta trae la referencia catastral enlazada con los datos y la <b>foto de fachada oficial del Catastro</b> — dejas de abrir edictos a ciegas.</p>
+<div class="ejemplo">Caso real (lote vivo al preparar esta página): <b>vivienda de 38 m² en Edif. Las Palmeras, Marbella (Málaga)</b>, subasta SUB-JA-2026-265098, tipo de subasta <b>111.609 €</b>, situación posesoria «no consta».</div>
+</div>
+
+<div class="paso">
+<h2><span class="num">2</span> Valor de mercado con testigos reales, no con la tasación del edicto</h2>
+<p>La tasación del edicto puede tener años. El motor valora cada inmueble con <b>testigos reales de su zona</b> (anuncios activos comparables por tipología y superficie, mediana robusta con banda), y estima además el precio de cierre esperado, que no es el de escaparate.</p>
+<div class="ejemplo">Marbella: valor de mercado por testigos con <b>cierre estimado de 138.974 €</b> — un 25 % por encima del tipo de subasta.</div>
+</div>
+
+<div class="paso">
+<h2><span class="num">3</span> Coste total de adquisición, no solo la puja</h2>
+<p>Al precio de adjudicación el motor suma el <b>ITP de la comunidad autónoma del inmueble</b> (sobre el mayor entre puja y valor de referencia), los gastos fijos y el coste de la posesión. Si el edicto no acredita que está libre, <b>asume ocupado por prudencia</b> y carga el coste de la desocupación.</p>
+<div class="ejemplo">Marbella: coste judicial + <b>TPO del 7 % de Andalucía</b> + coste de posesión (el «no consta» computa como ocupado).</div>
+</div>
+
+<div class="paso">
+<h2><span class="num">4</span> Plazos del juzgado concreto, con datos del CGPJ</h2>
+<p>No es lo mismo adjudicarse en un partido judicial ágil que en uno colapsado. El motor ajusta el plazo hasta la liquidez con la estadística del CGPJ <b>del partido judicial del lote</b>, más un tiempo de venta calibrado por zona.</p>
+<div class="ejemplo">Marbella: factor del partido <b>×0,78</b> (más ágil que la media) según CGPJ.</div>
+</div>
+
+<div class="paso">
+<h2><span class="num">5</span> La respuesta: mínimo, máximo y semáforo</h2>
+<p>Con todo lo anterior, el motor descuenta tres escenarios (base, optimista, pesimista) y devuelve el veredicto: el <b>mínimo legal para adjudicarte</b>, el <b>precio máximo de puja</b> que mantiene tu TIR objetivo y un semáforo de riesgo con la orden clara.</p>
+<div class="ejemplo">Marbella: <b>PUJAR CON CAUTELA</b> · mínimo para adjudicarte <b>78.127 €</b> (el 70 % del tipo, art. 670.1 LEC) · precio máximo de puja <b>98.418 €</b> (TIR 15 %). Pujando el mínimo, beneficio estimado de <b>42.659 €</b> en el escenario base; en el pesimista la TIR baja al 14,7 % — la orden es pujar solo cerca del mínimo.</div>
+</div>
+
+<h2>Lo que el motor NO es</h2>
+<ul>
+<li><b>No es una tasación oficial</b> ni sirve para hipotecar: es un modelo de decisión con testigos reales y supuestos prudentes, pensado para fijar tu puja máxima.</li>
+<li><b>No es asesoramiento de inversión</b>: los números son estimaciones; la decisión y la due diligence final (nota simple, cargas, edicto completo) son tuyas. La <a href="https://inversionnpl.com/guias/como-pujar-subastas-boe">guía de puja del BOE</a> incluida te lleva de la mano en esa parte.</li>
+</ul>
+<p>¿Quieres entender mejor los costes? La metodología está en abierto en InversionNPL: <a href="https://inversionnpl.com/calculadora-subasta">calculadora del coste real de subasta</a>, <a href="https://inversionnpl.com/itp-subastas">ITP por comunidad</a> y <a href="https://inversionnpl.com/ejecucion-hipotecaria">duración judicial por provincia</a>.</p>
+
+<div class="cta-final">
+<b>Pruébalo sobre las subastas reales de hoy.</b> Primera suscripción con 24 horas de prueba: pagas 0 € hoy y, si no te convence, cancelas sin coste. El ejemplo completo de Marbella, con la ficha del BOE y el desglose del motor, está en la portada.
+<br><a class="btn" href="/#precio">Empezar la prueba de 24 h →</a>&nbsp;&nbsp;<a class="btn" style="background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff" href="/#ejemplo">Ver el ejemplo real</a>
+</div>
+</main>
+<footer>
+  <div class="wrap">© Subastados · un producto de <a href="https://inversionnpl.com">InversionNPL</a> · <a href="/como-funciona/">Cómo funciona</a> · <a href="/precios/">Precios</a> · <a href="/faq/">FAQ</a> · <a href="mailto:soporte@inversionnpl.com">soporte@inversionnpl.com</a></div>
+</footer>
+</body>
+</html>
