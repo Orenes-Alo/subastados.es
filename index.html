@@ -154,6 +154,17 @@
   summary{font-size:15px;font-weight:700;color:var(--ink);cursor:pointer}
   details p{font-size:14px;color:var(--body);margin-top:10px}
 
+  /* Credibilidad */
+  #quienes{background:var(--white);border-top:1px solid var(--line)}
+  .cred-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 24px}
+  .cred-kpi{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .cred-kpi b{display:block;font-size:24px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+  .cred-kpi span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  @media(max-width:760px){.cred-kpis{grid-template-columns:repeat(2,1fr)}}
+  .cred-contact{display:flex;gap:18px;flex-wrap:wrap;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-top:18px}
+  .cred-contact a{display:inline-flex;align-items:center;gap:6px;color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}
+  .cred-legal{font-size:11px;color:var(--muted);line-height:1.6;margin-top:18px}
+
   footer{background:var(--navy);color:#94A3B8;padding:32px 0;font-size:13px;border-top:1px solid rgba(255,255,255,.08)}
   footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   footer a{color:#CBD5E1;text-decoration:none}
@@ -169,6 +180,7 @@
       <a href="#ejemplo">Ejemplo real</a>
       <a href="#comparativa">Comparativa</a>
       <a href="#faq">FAQ</a>
+      <a href="#quienes">Quién está detrás</a>
       <a href="#precio" class="cta">Suscribirme · 450 €/año</a>
     </nav>
   </div>
@@ -345,6 +357,28 @@
     <details><summary>¿De dónde salen los datos?</summary><p>Portal de Subastas del BOE y procuradores, Catastro, más de 179.000 testigos de mercado, duración de los juzgados (CGPJ), aranceles y LEC, fiscalidad por comunidad autónoma y los modelos propios de InversionNPL (predicción de desiertas, cesión de remate).</p></details>
     <details><summary>¿Puedo cancelar?</summary><p>Sí, en cualquier momento desde tu perfil en la plataforma; mantienes el acceso hasta el final del periodo pagado. El plan mensual no tiene permanencia.</p></details>
     <details><summary>¿Esto sustituye a mi asesoramiento jurídico?</summary><p>No. Es una herramienta de análisis para decidir mejor y más rápido; para pujas concretas te recomendamos revisar el checklist del informe y, si lo necesitas, apoyarte en el equipo jurídico de InversionNPL.</p></details>
+  </div>
+</section>
+
+<section id="quienes">
+  <div class="wrap">
+    <div class="eyebrow">Quién está detrás</div>
+    <h2>Un producto de InversionNPL, no una web recién nacida</h2>
+    <p class="sub">Subastados es la puerta de entrada a Subastas Scraper, el módulo de subastas de <a href="https://inversionnpl.com">InversionNPL</a>: la plataforma española de inversión en NPL e inmobiliario con descuento, con despacho de abogados especializado en ejecuciones detrás. Los datos que ves en esta página salen de esa misma plataforma, en tiempo real.</p>
+    <div class="cred-kpis">
+      <div class="cred-kpi"><b>3.900+</b><span>inversores registrados</span></div>
+      <div class="cred-kpi"><b>566.000+</b><span>testigos de mercado activos</span></div>
+      <div class="cred-kpi"><b>38.500+</b><span>activos analizados</span></div>
+      <div class="cred-kpi"><b>Equipo jurídico</b><span>propio, especializado en ejecuciones</span></div>
+    </div>
+    <p style="font-size:14px;color:var(--body);max-width:760px">La misma tecnología que usa el equipo para sus propias operaciones —valoración por testigos reales, plazos por juzgado con datos del CGPJ, motor de puja— es la que tienes con tu suscripción. Sin humo: cada cifra de esta página puede comprobarse dentro de la plataforma.</p>
+    <div class="cred-contact">
+      <span style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">¿Dudas antes de suscribirte?</span>
+      <a href="tel:+34606311356">📞 +34 606 31 13 56</a>
+      <a href="https://wa.me/34606311356" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+      <a href="mailto:soporte@inversionnpl.com">✉️ soporte@inversionnpl.com</a>
+    </div>
+    <p class="cred-legal">La información de esta página tiene carácter divulgativo y no constituye recomendación personalizada de inversión ni asesoramiento financiero, fiscal o legal. Toda inversión conlleva riesgos, incluida la posible pérdida del capital; las rentabilidades y cifras de ejemplos reales no garantizan resultados futuros. El pago se procesa de forma segura mediante Stripe; puedes cancelar la renovación en cualquier momento y el plan mensual no tiene permanencia.</p>
   </div>
 </section>
 
