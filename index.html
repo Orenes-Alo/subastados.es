@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subastados — Todas las subastas del BOE con el precio máximo que puedes pujar</title>
+<meta name="description" content="Más de 1.000 subastas judiciales y notariales del BOE organizadas y filtrables, con el motor Pujable incluido: mínimo para adjudicarte, precio máximo de puja para tu TIR objetivo, costes reales, plazos y semáforo de riesgo. 450 €/año todo incluido.">
+<meta property="og:title" content="Subastados — subastas del BOE + motor de decisión de puja">
+<meta property="og:description" content="Encuentra la subasta y decide la puja en la misma pantalla: valor de mercado con testigos, coste total real, plazos por juzgado y precio máximo de puja para tu rentabilidad.">
+<meta property="og:url" content="https://subastados.es/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F172A; --navy2:#1E3A8A; --blue:#2563EB; --blue-l:#93C5FD;
+    --ink:#0F172A; --body:#334155; --muted:#64748B; --line:#E2E8F0;
+    --bg:#F8FAFC; --white:#FFFFFF; --green:#059669; --green-l:#34D399;
+    --red:#DC2626; --amber:#D97706; --amber-l:#FBBF24;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--body);background:var(--bg);line-height:1.6}
+  a{color:var(--blue)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  h2{font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:10px}
+  .sub{font-size:16px;color:var(--muted);max-width:760px;margin-bottom:28px}
+  section{padding:64px 0}
+  .eyebrow{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-size:20px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.02em}
+  .brand em{color:var(--blue-l);font-style:normal}
+  .brand small{font-size:11px;font-weight:600;color:#94A3B8;margin-left:8px}
+  nav{display:flex;gap:22px;align-items:center}
+  nav a{color:#CBD5E1;text-decoration:none;font-size:14px;font-weight:500}
+  nav a:hover{color:#fff}
+  nav a.cta{background:var(--blue);color:#fff;padding:9px 16px;border-radius:10px;font-weight:700}
+  @media(max-width:760px){nav a:not(.cta){display:none}}
+
+  /* Banner pago */
+  .banner{display:none;background:#ECFDF5;border-bottom:1px solid #A7F3D0;color:#065F46;padding:12px 20px;text-align:center;font-size:14px;font-weight:600}
+  .banner.warn{background:#FFFBEB;border-color:#FDE68A;color:#92400E}
+
+  /* Hero */
+  .hero{background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 120%);color:#fff;padding:80px 0 64px}
+  .hero h1{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1.12;max-width:820px}
+  .hero h1 em{font-style:normal;color:var(--blue-l)}
+  .hero .lead{font-size:18px;color:#CBD5E1;max-width:740px;margin:18px 0 28px}
+  .hero .lead b{color:#fff}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
+  .btn-blue{background:var(--blue);color:#fff;box-shadow:0 8px 24px rgba(37,99,235,.35)}
+  .btn-white{background:#fff;color:var(--navy)}
+  .btn-ghost{background:transparent;color:#CBD5E1;border:1.5px solid rgba(255,255,255,.25)}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+  .kpi{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px;text-align:center}
+  .kpi b{display:block;font-size:24px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+  .kpi span{font-size:11px;color:#94A3B8;text-transform:uppercase;letter-spacing:.06em}
+  @media(max-width:760px){.hero h1{font-size:32px}.kpis{grid-template-columns:repeat(2,1fr)}}
+
+  /* Subastas en vivo */
+  .grid-subastas{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:16px}
+  .scard{position:relative;background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .15s, box-shadow .15s}
+  .scard:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,23,42,.10)}
+  .scard img{width:100%;height:150px;object-fit:cover;display:block;background:#E2E8F0}
+  .scard .body{padding:12px 14px 14px}
+  .scard .tipo{font-size:10.5px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em}
+  .scard .loc{font-size:14.5px;font-weight:700;color:var(--ink);margin:2px 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .scard .val{font-size:13px;color:var(--body)}
+  .scard .val b{color:var(--ink);font-variant-numeric:tabular-nums}
+  .scard .lock{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.03) 0%,rgba(15,23,42,.45) 100%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:14px}
+  .scard .lock span{background:rgba(255,255,255,.95);padding:6px 14px;border-radius:999px;font-size:11px;font-weight:700;color:var(--ink);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+  .badge-cesion{position:absolute;top:10px;left:10px;background:var(--amber);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px;letter-spacing:.04em}
+
+  /* Ejemplo Pujable */
+  .ejemplo{background:linear-gradient(120deg,var(--navy) 0%,var(--navy2) 130%);border-radius:18px;padding:28px;color:#fff;box-shadow:0 16px 40px rgba(15,23,42,.25)}
+  .ejemplo .head{font-size:11px;font-weight:700;color:var(--blue-l);text-transform:uppercase;letter-spacing:.1em}
+  .ejemplo h3{font-size:22px;font-weight:800;letter-spacing:-.02em;margin:2px 0 8px}
+  .ejemplo .ctx{font-size:13.5px;color:#CBD5E1;margin-bottom:16px}
+  .ejemplo .ctx b{color:#fff}
+  .veredicto{display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:12px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.4);margin-bottom:16px}
+  .veredicto .t{font-weight:800;font-size:15px;color:var(--amber-l)}
+  .veredicto .d{font-size:13px;color:#E2E8F0;margin-top:3px}
+  .veredicto .d b{color:#fff}
+  .ekpis{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .ekpi{flex:1 1 140px;min-width:140px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 12px}
+  .ekpi span{display:block;font-size:10px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em}
+  .ekpi b{font-size:17px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+  .ekpi small{display:block;font-size:10.5px;color:#94A3B8}
+  .ejemplo .tbl{overflow-x:auto;margin-bottom:14px}
+  .ejemplo table{border-collapse:collapse;width:100%;min-width:560px}
+  .ejemplo th{text-align:right;padding:7px 9px;font-size:11px;color:#94A3B8;font-weight:700;white-space:nowrap}
+  .ejemplo td{text-align:right;padding:7px 9px;font-size:13px;color:#E2E8F0;border-top:1px solid rgba(255,255,255,.1);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ejemplo th:first-child,.ejemplo td:first-child{text-align:left}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+  .chip{padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700}
+  .chip.v{background:rgba(52,211,153,.16);color:var(--green-l);border:1px solid rgba(52,211,153,.4)}
+  .chip.a{background:rgba(245,158,11,.16);color:var(--amber-l);border:1px solid rgba(245,158,11,.4)}
+  .ejemplo .close{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .ejemplo .close p{flex:1;min-width:240px;font-size:13px;color:#CBD5E1}
+  .ejemplo .close p b{color:#fff}
+
+  /* Comparativa */
+  .tabla-comp{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:8px;overflow-x:auto}
+  .tabla-comp table{border-collapse:collapse;width:100%;min-width:680px}
+  .tabla-comp th{text-align:left;padding:14px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+  .tabla-comp td{text-align:left;padding:13px 14px;font-size:13px;line-height:1.5;border-top:1px solid var(--line);vertical-align:top}
+  .tabla-comp td.aspecto{font-weight:700;color:var(--ink);white-space:nowrap}
+  .tabla-comp .mano{color:var(--muted)}
+  .tabla-comp .motor{background:rgba(37,99,235,.05);color:var(--ink)}
+  .tabla-comp th.motor{color:var(--blue)}
+  .x{color:var(--red);font-weight:800;margin-right:6px}
+  .v{color:var(--green);font-weight:800;margin-right:6px}
+
+  /* Features */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feature{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .feature .ico{width:38px;height:38px;border-radius:10px;background:rgba(37,99,235,.1);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
+  .feature h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
+  .feature p{font-size:13px;color:var(--muted)}
+  @media(max-width:900px){.features{grid-template-columns:1fr}}
+  @media(min-width:900px) and (max-width:1100px){.features{grid-template-columns:repeat(2,1fr)}}
+
+  /* Precio */
+  #precio{background:var(--navy);color:#fff}
+  #precio h2{color:#fff}
+  #precio .sub{color:#94A3B8}
+  .pricing{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px}
+  .price-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:26px}
+  .price-card.hot{background:rgba(37,99,235,.14);border-color:rgba(147,197,253,.5);position:relative}
+  .price-card .tag{position:absolute;top:-11px;left:22px;background:var(--blue);color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.06em}
+  .price-card .tier{font-size:13px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:.08em}
+  .price-card .amt{font-size:38px;font-weight:800;color:#fff;margin:4px 0 2px}
+  .price-card .amt small{font-size:14px;font-weight:600;color:#94A3B8}
+  .price-card ul{list-style:none;margin:14px 0 18px}
+  .price-card li{font-size:13.5px;color:#CBD5E1;padding:4px 0 4px 22px;position:relative}
+  .price-card li:before{content:"✓";position:absolute;left:0;color:var(--green-l);font-weight:800}
+  .paybox{display:flex;gap:8px;flex-wrap:wrap}
+  .paybox input{flex:1;min-width:180px;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:14px;font-family:inherit}
+  .paybox input::placeholder{color:#7C8DA6}
+  .msg{display:none;margin-top:10px;font-size:13px;padding:10px 12px;border-radius:10px}
+  .msg.err{display:block;background:rgba(220,38,38,.15);color:#FCA5A5}
+  .msg.ok{display:block;background:rgba(52,211,153,.15);color:#6EE7B7}
+  .fine{font-size:12px;color:#7C8DA6;margin-top:18px;max-width:760px}
+  .fine a{color:var(--blue-l)}
+  @media(max-width:760px){.pricing{grid-template-columns:1fr}}
+
+  /* FAQ */
+  details{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px}
+  summary{font-size:15px;font-weight:700;color:var(--ink);cursor:pointer}
+  details p{font-size:14px;color:var(--body);margin-top:10px}
+
+  footer{background:var(--navy);color:#94A3B8;padding:32px 0;font-size:13px;border-top:1px solid rgba(255,255,255,.08)}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:#CBD5E1;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="/" class="brand">Subastados<em>.</em> <small>by InversionNPL</small></a>
+    <nav>
+      <a href="#en-vivo">Subastas en vivo</a>
+      <a href="#ejemplo">Ejemplo real</a>
+      <a href="#comparativa">Comparativa</a>
+      <a href="#faq">FAQ</a>
+      <a href="#precio" class="cta">Suscribirme · 450 €/año</a>
+    </nav>
+  </div>
+</header>
+
+<div id="banner" class="banner"></div>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Todas las subastas de España, con el <em>precio máximo que puedes pujar</em> sin perder dinero</h1>
+    <p class="lead">Mientras lees esto, hay subastas del BOE cerrándose. Subastados captura las <b>más de 1.000 subastas judiciales y notariales activas</b>, las ordena por oportunidad, y en la ficha de cada lote el motor <b>Pujable</b> te calcula el mínimo para adjudicarte, el precio máximo para tu rentabilidad objetivo, el coste total real y los plazos. <b>Encontrar la oportunidad y decidir la puja, en la misma pantalla.</b></p>
+    <div class="row">
+      <a class="btn btn-blue" href="#precio">Suscribirme · 450 €/año</a>
+      <a class="btn btn-white" href="#ejemplo">Ver un ejemplo real del motor</a>
+      <a class="btn btn-ghost" href="#comparativa">¿Qué me ahorro?</a>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b>1.000+</b><span>subastas activas hoy</span></div>
+      <div class="kpi"><b>748</b><span>cesiones detectadas</span></div>
+      <div class="kpi"><b>52</b><span>provincias</span></div>
+      <div class="kpi"><b>semanal</b><span>refresco del BOE</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="en-vivo">
+  <div class="wrap">
+    <div class="eyebrow">Subastas reales · ahora mismo en el BOE</div>
+    <h2>Estas son las que verías tras suscribirte</h2>
+    <p class="sub">Muestra en vivo del feed real (con foto oficial del catastro cuando el lote tiene referencia). Dentro: filtros por provincia, tipo, valor y cierre, score de cesión de remate, probabilidad de quedar desierta y export a CSV.</p>
+    <div id="grid-subastas" class="grid-subastas"><div style="color:var(--muted);font-size:14px">Cargando subastas en directo del BOE…</div></div>
+  </div>
+</section>
+
+<section id="ejemplo" style="padding-top:0">
+  <div class="wrap">
+    <div class="ejemplo">
+      <div class="head">Incluido en tu suscripción · Pujable, el motor de decisión de puja</div>
+      <h3>¿Hasta cuánto pujar? Esto es lo que el motor te responde en un clic</h3>
+      <p class="ctx">Ejemplo <b>real y sin retocar</b>, calculado por el motor sobre un lote vivo del BOE: vivienda de 38 m² en Edif. Las Palmeras, <b>Marbella (Málaga)</b> · subasta SUB-JA-2026-265098 · tipo de subasta 111.609 €.</p>
+      <div class="veredicto">
+        <div style="font-size:18px">⚠️</div>
+        <div>
+          <div class="t">PUJAR CON CAUTELA · Mínimo para adjudicarte: 78.127 € · Precio máximo de puja: 98.418 €</div>
+          <div class="d">Pujando el mínimo legal (78.127 €, el 70 % del tipo — art. 670.1 LEC), el motor estima una <b>TIR del 37 %</b> y un <b>beneficio de 42.659 €</b> en el escenario base. En el pesimista la TIR baja al 14,7 %: la orden es pujar solo cerca del mínimo y con el checklist comprobado.</div>
+        </div>
+      </div>
+      <div class="ekpis">
+        <div class="ekpi"><span>Valor de mercado</span><b>151.202 €</b><small>testigos de la zona · cierre est. 138.974 €</small></div>
+        <div class="ekpi"><span>Coste total (base)</span><b>113.857 €</b><small>judicial + TPO 7 % Andalucía + posesión</small></div>
+        <div class="ekpi"><span>Plazo judicial</span><b>8,0 m</b><small>partido de Marbella ×0,78 (CGPJ)</small></div>
+        <div class="ekpi"><span>Tiempo de venta</span><b>6,5 m</b><small>zona líquida</small></div>
+        <div class="ekpi"><span>Total hasta liquidez</span><b>14,5 m</b><small>&nbsp;</small></div>
+        <div class="ekpi"><span>P(desierta)</span><b>15 %</b><small>modelo propio calibrado</small></div>
+      </div>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Escenario</th><th>Venta neta</th><th>Plazo</th><th>Pujando el mínimo (78.127 €): TIR</th><th>Beneficio</th><th>Precio máx. (TIR 15 %)</th></tr></thead>
+          <tbody>
+            <tr><td>Optimista</td><td>146.666 €</td><td>9,8 m</td><td style="font-weight:800;color:var(--green-l)">76,7 % ✓</td><td>54.520 €</td><td style="font-weight:800">114.295 €</td></tr>
+            <tr><td style="font-weight:800">Base</td><td>134.805 €</td><td>14,5 m</td><td style="font-weight:800;color:var(--green-l)">37,0 % ✓</td><td>42.659 €</td><td style="font-weight:800">98.418 €</td></tr>
+            <tr><td>Pesimista</td><td>121.324 €</td><td>24,1 m</td><td style="font-weight:800;color:var(--amber-l)">14,7 %</td><td>29.178 €</td><td style="font-weight:800">77.647 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="chips">
+        <span class="chip v">● Zona líquida: ~7 meses de venta</span>
+        <span class="chip v">● Juzgado más rápido que la media (×0,78)</span>
+        <span class="chip v">● Probabilidad de subasta desierta: 15 %</span>
+        <span class="chip v">● Sin indicio de VPO</span>
+        <span class="chip a">● Posesión no acreditada (se asume ocupado)</span>
+        <span class="chip a">● Cargas: sin importe publicado</span>
+      </div>
+      <div class="close">
+        <p>Esto mismo lo calculas tú, <b>en un clic y para cualquiera de los 1.000+ lotes activos</b>, con tu TIR objetivo, tus supuestos de reforma y cargas, y borrador de informe en Word. Sin pagar informes sueltos: va incluido en la suscripción.</p>
+        <a class="btn btn-white" href="#precio">Scraper + Pujable · 450 €/año</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="comparativa" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">La diferencia, en frío</div>
+    <h2>Buscar subastas a mano en el BOE vs. Subastados</h2>
+    <p class="sub">Lo que hoy haces (o no haces) a mano, y lo que hace el motor por ti en la misma pantalla.</p>
+    <div class="tabla-comp">
+      <table>
+        <thead><tr><th style="width:17%"> </th><th style="width:41.5%;color:var(--muted)">A mano en el BOE</th><th class="motor" style="width:41.5%">Con Subastados (Scraper + Pujable)</th></tr></thead>
+        <tbody>
+          <tr><td class="aspecto">Encontrar la subasta</td><td class="mano"><span class="x">✕</span>Navegar el Portal del BOE lote a lote, con una búsqueda pobre y sin fotos. Horas cada semana para no perderte nada.</td><td class="motor"><span class="v">✓</span>Las 1.000+ subastas activas capturadas y organizadas: filtros por provincia, valor, tipo, cierre y foto del catastro en cada tarjeta.</td></tr>
+          <tr><td class="aspecto">Por dónde empezar</td><td class="mano"><span class="x">✕</span>Sin ningún criterio: todas las subastas parecen iguales hasta que las estudias una a una.</td><td class="motor"><span class="v">✓</span>Ordenadas por probabilidad de quedar desiertas (modelo IA) y score de cesión de remate 0-100: las mejores oportunidades, arriba.</td></tr>
+          <tr><td class="aspecto">Valor real del inmueble</td><td class="mano"><span class="x">✕</span>La tasación del edicto, que puede venir desfasada, inflada o directamente a 0 €.</td><td class="motor"><span class="v">✓</span>Valor de mercado con testigos reales de la zona (179.000+ anuncios) en horquilla + precio de cierre estimado.</td></tr>
+          <tr><td class="aspecto">Cuánto pujar</td><td class="mano"><span class="x">✕</span>Intuición. Ni el mínimo que necesitas para adjudicarte ni el máximo que puedes pagar sin perder dinero.</td><td class="motor"><span class="v">✓</span>Mínimo legal para adjudicarte (art. 670 LEC) y precio máximo de puja para tu TIR objetivo, en 3 escenarios.</td></tr>
+          <tr><td class="aspecto">Costes reales</td><td class="mano"><span class="x">✕</span>Las sorpresas llegan después: ITP, posesión, cargas que subsisten, comunidad, reforma…</td><td class="motor"><span class="v">✓</span>Coste total calculado antes de pujar: judicial, fiscal por tu CCAA, posesión, reforma y venta.</td></tr>
+          <tr><td class="aspecto">Plazos</td><td class="mano"><span class="x">✕</span>Nadie te dice cuánto tarda ese juzgado ni cuánto tardarás en vender en esa zona.</td><td class="motor"><span class="v">✓</span>Duración del juzgado concreto (datos CGPJ) + tiempo de venta en la zona = meses hasta liquidez, por escenario.</td></tr>
+          <tr><td class="aspecto">Riesgos</td><td class="mano"><span class="x">✕</span>Ocupación, VPO o cargas se descubren cuando ya es tarde.</td><td class="motor"><span class="v">✓</span>Semáforo de riesgo con avisos: posesión, cargas, VPO, confianza de la valoración, probabilidad de desierta.</td></tr>
+          <tr><td class="aspecto">Documentar la decisión</td><td class="mano"><span class="x">✕</span>Tu Excel casero, montado a mano para cada lote.</td><td class="motor"><span class="v">✓</span>Borrador de informe en Word en un clic + export CSV del listado filtrado.</td></tr>
+          <tr><td class="aspecto">Tiempo por operación</td><td class="mano"><span class="x">✕</span>Horas de Catastro, portales y hojas de cálculo… por cada lote que estudias.</td><td class="motor"><span class="v">✓</span>Minutos: encuentras, filtras y decides la puja en la misma pantalla.</td></tr>
+          <tr><td class="aspecto">Lo que cuesta</td><td class="mano"><span class="x">✕</span>«Gratis»… pagado en cientos de horas al año y en las operaciones que se te escapan.</td><td class="motor" style="font-weight:600"><span class="v">✓</span>450 €/año todo incluido (o 45 €/mes) — menos de lo que vale una sola puja bien calculada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="funciones" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Qué incluye tu suscripción</div>
+    <h2>Más que un listado: una herramienta de selección y decisión</h2>
+    <p class="sub">Todo lo que necesitas desde que se publica la subasta hasta que decides tu puja máxima.</p>
+    <div class="features">
+      <div class="feature"><div class="ico">⚖️</div><h3>Motor de puja Pujable · incluido</h3><p>En la ficha de cada lote: mínimo para adjudicarte, precio máximo para tu TIR objetivo en 3 escenarios, coste total real, plazos por juzgado y semáforo de riesgo. Con borrador de informe en Word.</p></div>
+      <div class="feature"><div class="ico">📉</div><h3>Predicción IA · subasta desierta</h3><p>Un modelo de Machine Learning estima, para cada subasta abierta, la probabilidad de que quede desierta, con su explicación. Ordena por ese riesgo y detecta antes las oportunidades.</p></div>
+      <div class="feature"><div class="ico">✨</div><h3>Cesiones de remate</h3><p>Clasificador transparente 0-100: catastro, dirección, tipo de activo, tasación, tipo de subasta y red flags. 748 detectadas ahora mismo.</p></div>
+      <div class="feature"><div class="ico">📍</div><h3>Filtros por provincia</h3><p>Las 52 provincias, con conteos en vivo de lotes activos y cesiones por cada una. Más filtros financieros: tasación, score, tipo, «solo cesión de remate».</p></div>
+      <div class="feature"><div class="ico">📋</div><h3>Ficha completa de cada lote</h3><p>Dirección, código postal, catastro, IDUFIR, cargas, situación posesoria, tasación, puja mínima, depósito y foto de fachada oficial del catastro.</p></div>
+      <div class="feature"><div class="ico">📤</div><h3>Export CSV</h3><p>Descarga el listado filtrado para llevarlo a Excel o a tu propio modelo de valoración.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="precio">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--blue-l)">Precio único, todo incluido</div>
+    <h2>Suscríbete en un minuto</h2>
+    <p class="sub">Pagas con tarjeta en Stripe. Tras el pago recibirás un email para entrar (o crear tu cuenta gratuita si aún no la tienes) y usar Subastas Scraper + Pujable en la plataforma de InversionNPL.</p>
+    <div class="pricing">
+      <div class="price-card hot">
+        <span class="tag">RECOMENDADO</span>
+        <div class="tier">Anual</div>
+        <div class="amt">450 €<small>/año</small></div>
+        <ul>
+          <li>1.000+ subastas del BOE, filtrables y exportables</li>
+          <li>Motor de puja Pujable en cada lote, sin límite de usos</li>
+          <li>Predicción de desiertas + cesiones de remate</li>
+          <li>Borrador de informe en Word</li>
+        </ul>
+        <div class="paybox">
+          <input type="email" id="email-year" placeholder="tu@email.com" autocomplete="email">
+          <button class="btn btn-blue" onclick="checkout('year')">Pagar 450 €/año</button>
+        </div>
+        <div class="msg" id="m-year"></div>
+      </div>
+      <div class="price-card">
+        <div class="tier">Mensual</div>
+        <div class="amt">45 €<small>/mes</small></div>
+        <ul>
+          <li>Todo lo del plan anual</li>
+          <li>Sin permanencia: cancela cuando quieras</li>
+          <li>Pensado para probar o para operaciones puntuales</li>
+        </ul>
+        <div class="paybox">
+          <input type="email" id="email-month" placeholder="tu@email.com" autocomplete="email">
+          <button class="btn btn-ghost" style="border-color:rgba(255,255,255,.35);color:#fff" onclick="checkout('month')">Pagar 45 €/mes</button>
+        </div>
+        <div class="msg" id="m-month"></div>
+      </div>
+    </div>
+    <p class="fine">Suscripción gestionada por Stripe a nombre de InversionNPL. El acceso se disfruta en <a href="https://inversionnpl.com/dashboard/subastas-scraper">inversionnpl.com/dashboard/subastas-scraper</a> con una cuenta gratuita. Puedes cancelar la renovación en cualquier momento desde tu perfil.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Preguntas frecuentes</div>
+    <h2>FAQ</h2>
+    <details><summary>¿Cómo accedo después de pagar?</summary><p>Si ya tienes cuenta en InversionNPL con el email del pago, el acceso se activa solo y te avisamos por email: entra en inversionnpl.com/dashboard/subastas-scraper. Si no tienes cuenta, te llega un email para crearla gratis con ese mismo email, y el acceso se activa a los pocos minutos de registrarte.</p></details>
+    <details><summary>¿Qué es exactamente Pujable?</summary><p>El motor de decisión de puja de InversionNPL. Para cada lote calcula el valor de mercado con testigos reales de la zona, el coste total de adquisición (judicial, fiscal, posesión, reforma, venta), los plazos (duración del juzgado según datos del CGPJ y tiempo de venta en la zona) y el precio máximo de puja para tu rentabilidad objetivo, en tres escenarios y con semáforo de riesgo. No es una tasación oficial.</p></details>
+    <details><summary>¿De dónde salen los datos?</summary><p>Portal de Subastas del BOE y procuradores, Catastro, más de 179.000 testigos de mercado, duración de los juzgados (CGPJ), aranceles y LEC, fiscalidad por comunidad autónoma y los modelos propios de InversionNPL (predicción de desiertas, cesión de remate).</p></details>
+    <details><summary>¿Puedo cancelar?</summary><p>Sí, en cualquier momento desde tu perfil en la plataforma; mantienes el acceso hasta el final del periodo pagado. El plan mensual no tiene permanencia.</p></details>
+    <details><summary>¿Esto sustituye a mi asesoramiento jurídico?</summary><p>No. Es una herramienta de análisis para decidir mejor y más rápido; para pujas concretas te recomendamos revisar el checklist del informe y, si lo necesitas, apoyarte en el equipo jurídico de InversionNPL.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="y"></span> Subastados · un producto de <a href="https://inversionnpl.com">InversionNPL</a></div>
+    <div><a href="mailto:soporte@inversionnpl.com">soporte@inversionnpl.com</a> · <a href="https://inversionnpl.com/dashboard/subastas-scraper">Acceso suscriptores</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var API = 'https://inversionnpl.com/api';
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Banner de vuelta de Stripe
+  var q = new URLSearchParams(location.search);
+  var banner = document.getElementById('banner');
+  if (q.get('pago') === 'ok') {
+    banner.style.display = 'block';
+    banner.textContent = '¡Pago recibido! Revisa tu email: te hemos enviado las instrucciones para entrar (o crear tu cuenta gratuita) y empezar a usar Subastas Scraper + Pujable.';
+    history.replaceState(null, '', location.pathname);
+  } else if (q.get('pago') === 'cancelado') {
+    banner.className = 'banner warn'; banner.style.display = 'block';
+    banner.textContent = 'Pago cancelado. No se ha cobrado nada; puedes volver a intentarlo cuando quieras.';
+    history.replaceState(null, '', location.pathname);
+  }
+
+  // Subastas en vivo (feed público, mismas cards que dentro)
+  var eur = function(n){ return n == null ? '—' : Math.round(n).toLocaleString('es-ES') + ' €'; };
+  fetch(API + '/subastas/preview')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      var items = (d && d.items) || [];
+      if (!items.length) return;
+      var grid = document.getElementById('grid-subastas');
+      grid.innerHTML = '';
+      items.slice(0, 8).forEach(function(s){
+        var card = document.createElement('div');
+        card.className = 'scard';
+        card.onclick = function(){ location.href = '#precio'; };
+        card.innerHTML =
+          (s.is_cesion_remate ? '<span class="badge-cesion">CESIÓN DE REMATE</span>' : '') +
+          '<img loading="lazy" alt="" src="' + API + '/subastas/preview-photo/' + encodeURIComponent(s.sub_id) + '" onerror="this.style.display=\'none\'">' +
+          '<div class="body">' +
+            '<div class="tipo">' + (s.tipo_bien || s.tipo || 'inmueble') + '</div>' +
+            '<div class="loc">' + (s.localidad || '') + (s.provincia ? ' (' + s.provincia + ')' : '') + '</div>' +
+            '<div class="val">Tasación: <b>' + eur(s.tasacion) + '</b>' + (s.puja_minima ? ' · puja mín. ' + eur(s.puja_minima) : '') + '</div>' +
+          '</div>' +
+          '<div class="lock"><span>🔒 Suscríbete para acceder</span></div>';
+        grid.appendChild(card);
+      });
+    })
+    .catch(function(){ /* si falla, la sección queda con el texto de carga */ });
+
+  // Checkout
+  function show(id, ok, text){ var m = document.getElementById(id); m.className = 'msg ' + (ok ? 'ok' : 'err'); m.textContent = text; }
+  window.checkout = function(interval){
+    var input = document.getElementById(interval === 'month' ? 'email-month' : 'email-year');
+    var msgId = interval === 'month' ? 'm-month' : 'm-year';
+    var email = (input.value || '').trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { show(msgId, false, 'Indica un email válido: es donde recibirás el acceso.'); input.focus(); return; }
+    show(msgId, true, 'Abriendo el pago seguro de Stripe…');
+    fetch(API + '/public/subastados/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, interval: interval })
+    })
+      .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+      .then(function(x){
+        if (x.ok && x.j.url) { location.href = x.j.url; }
+        else { show(msgId, false, x.j.message || x.j.error || 'No se pudo iniciar el pago. Inténtalo de nuevo.'); }
+      })
+      .catch(function(){ show(msgId, false, 'Error de conexión. Inténtalo de nuevo en unos segundos.'); });
+  };
+})();
+</script>
+</body>
+</html>
