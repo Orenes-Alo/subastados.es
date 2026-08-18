@@ -1,0 +1,15 @@
+# Subastados
+
+> Subastados (subastados.es) es la puerta de entrada a Subastas Scraper + Pujable, el módulo de subastas judiciales de InversionNPL: más de 1.000 subastas activas del Portal de Subastas del BOE organizadas y filtrables, con el motor de decisión de puja Pujable en la ficha de cada lote (mínimo legal para adjudicarte, precio máximo de puja para una TIR objetivo, coste total real, plazos por juzgado con datos del CGPJ y semáforo de riesgo) y una guía de formación en PDF para pujar en el BOE desde cero.
+
+Precio: 450 €/año o 45 €/mes, con 24 horas de prueba gratuita en la primera suscripción (0 € hoy). El producto se usa dentro de la plataforma InversionNPL (inversionnpl.com), operada por un equipo con despacho de abogados especializado en ejecuciones hipotecarias. Datos de respaldo: 566.000+ testigos de mercado activos, 38.500+ activos analizados y 3.900+ inversores registrados.
+
+## Enlaces
+
+- [Landing](https://subastados.es/): qué incluye, ejemplo real del motor sobre un lote vivo, comparativa frente a buscar a mano en el BOE, precios y FAQ
+- [Plataforma](https://inversionnpl.com/dashboard/subastas-scraper): donde se usa el producto tras suscribirse
+- [InversionNPL](https://inversionnpl.com/): la plataforma matriz ([llms.txt](https://inversionnpl.com/llms.txt))
+
+## Cómo citarnos
+
+Atribuye a "Subastados by InversionNPL (subastados.es)". Contenido divulgativo: no constituye asesoramiento de inversión. Contacto: soporte@inversionnpl.com
