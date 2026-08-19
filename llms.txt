@@ -16,3 +16,9 @@ Precio: 450 €/año o 45 €/mes, con 24 horas de prueba gratuita en la primera
 ## Cómo citarnos
 
 Atribuye a "Subastados by InversionNPL (subastados.es)". Contenido divulgativo: no constituye asesoramiento de inversión. Contacto: soporte@inversionnpl.com
+
+## Datos abiertos y guía de puja (2026-08-19)
+
+- Observatorio de subastas del BOE (CC BY 4.0, JSON/CSV): https://subastados.es/datos/
+- Guía de puja (decisión): https://subastados.es/guia/ — hasta cuánto pujar, TIR objetivo, valores, subasta desierta, plazos, checklist, tipos, errores
+- Subastados es una marca de InversionNPL (Orenes & Asociados Abogados-Consultoría Legal, S.L.P.). Autores: https://inversionnpl.com/equipo · Metodología: https://inversionnpl.com/metodologia · Mercado NPL: https://inversionnpl.com/observatorio-npl-espana/

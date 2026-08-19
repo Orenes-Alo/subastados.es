@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hasta cuánto pujar en una subasta judicial: método paso a paso</title>
+<meta name="description" content="Cómo fijar tu puja máxima en una subasta del BOE: valor real del inmueble por testigos, menos costes de adquisición (ITP, gastos, desocupación, reforma), menos el margen que exiges por el plazo y el riesgo. Con ejemplo numérico y los errores que hacen sobrepujar.">
+<meta property="og:title" content="Hasta cuánto pujar en una subasta judicial: método paso a paso">
+<meta property="og:description" content="Cómo fijar tu puja máxima en una subasta del BOE: valor real del inmueble por testigos, menos costes de adquisición (ITP, gastos, desocupación, reforma), menos el margen que exiges por el plazo y el riesgo. Con ejemplo numérico y los errores que hacen sobrepujar.">
+<meta property="og:url" content="https://subastados.es/guia/hasta-cuanto-pujar/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://subastados.es/og.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://subastados.es/guia/hasta-cuanto-pujar/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Inicio",
+     "item": "https://subastados.es/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guía de puja",
+     "item": "https://subastados.es/guia/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "¿Hasta cuánto pujar en una subasta judicial?",
+     "item": "https://subastados.es/guia/hasta-cuanto-pujar/"
+    }
+   ]
+  },
+  {
+   "@type": "Article",
+   "headline": "¿Hasta cuánto pujar en una subasta judicial?",
+   "description": "Cómo fijar tu puja máxima en una subasta del BOE: valor real del inmueble por testigos, menos costes de adquisición (ITP, gastos, desocupación, reforma), menos el margen que exiges por el plazo y el riesgo. Con ejemplo numérico y los errores que hacen sobrepujar.",
+   "url": "https://subastados.es/guia/hasta-cuanto-pujar/",
+   "inLanguage": "es",
+   "dateModified": "2026-08-19",
+   "author": {
+    "@type": "Person",
+    "@id": "https://inversionnpl.com/equipo/alonso-orenes/#person",
+    "name": "Alonso Orenes",
+    "url": "https://inversionnpl.com/equipo/alonso-orenes/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://subastados.es/#org",
+    "name": "Subastados",
+    "url": "https://subastados.es"
+   },
+   "isPartOf": {
+    "@type": "WebSite",
+    "url": "https://subastados.es",
+    "name": "Subastados"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "¿Puedo pujar por debajo del 70 % del valor de subasta?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sí, pero la adjudicación por debajo del 70 % queda sujeta a las reglas del art. 670 LEC: el ejecutado puede presentar tercero que mejore la postura y el ejecutante puede pedir la adjudicación; por debajo del 50 % el tribunal decide. Pujar bajo es legítimo; adjudicarse bajo es más incierto."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿El valor de subasta es el valor del inmueble?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Es el tipo fijado para la subasta (normalmente el valor de tasación a efectos de subasta de la escritura de hipoteca, menos cargas anteriores). El valor de mercado real se calcula con testigos actuales."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0F172A;--blue:#2563EB;--blue-l:#93C5FD;--ink:#0F172A;--body:#334155;--muted:#64748B;--line:#E2E8F0;--bg:#F8FAFC}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Outfit',-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--body);background:var(--bg);line-height:1.65}
+  a{color:var(--blue)}
+  .wrap{max-width:840px;margin:0 auto;padding:0 20px}
+  header{background:var(--navy);padding:13px 0}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .brand{color:#fff;font-weight:800;font-size:19px;text-decoration:none}
+  .brand em{color:var(--blue-l);font-style:normal}
+  .brand small{font-size:11px;font-weight:500;color:#94A3B8;margin-left:6px}
+  nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  nav a{color:#CBD5E1;text-decoration:none;font-size:13.5px;font-weight:600}
+  nav a.cta{background:var(--blue);color:#fff;padding:8px 14px;border-radius:10px;font-weight:700}
+  h1{font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.2;margin:26px 0 14px}
+  p{margin-bottom:12px}
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;margin:10px 0;padding:0}
+  summary{cursor:pointer;font-weight:700;color:var(--ink);font-size:15.5px;padding:14px 18px;list-style:none;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";position:absolute;right:18px;color:var(--blue);font-weight:800;font-size:18px}
+  details[open] summary:after{content:"–"}
+  details div{padding:0 18px 14px;font-size:14.5px}
+  .cta-final{background:linear-gradient(120deg,#0F172A,#1E3A8A);border-radius:16px;padding:24px;color:#CBD5E1;margin:30px 0;font-size:14.5px}
+  .cta-final b{color:#fff}
+  .cta-final a.btn{display:inline-block;margin-top:12px;background:#fff;color:var(--ink);text-decoration:none;font-weight:800;font-size:14px;padding:11px 18px;border-radius:10px}
+  footer{border-top:1px solid var(--line);margin-top:36px;padding:22px 0 30px;font-size:12px;color:#94A3B8}
+  footer a{color:var(--muted)}
+  h2{font-size:20px;font-weight:800;color:var(--ink);margin:26px 0 8px}
+  h3{font-size:16px;font-weight:700;color:var(--ink);margin:18px 0 6px}
+  ul,ol{margin:0 0 12px 22px} li{margin:4px 0}
+  table{border-collapse:collapse;width:100%;background:#fff;font-size:14px;margin:10px 0 16px} th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px;font-size:12.5px} td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .capsula{background:#fff;border-left:4px solid var(--blue);border-radius:10px;padding:12px 16px;font-size:15px;margin:0 0 16px}
+  .byline{font-size:13px;color:var(--muted);margin:0 0 14px}
+  .fuentes{margin:28px 0 8px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:13.5px}
+  .rel{margin:18px 0;font-size:14px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:10px 0}
+  .card h2{margin:0 0 6px;font-size:17px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="/" class="brand">Subastados<em>.</em> <small>by InversionNPL</small></a>
+    <nav>
+      <a href="/como-funciona/">Cómo funciona</a>
+      <a href="/datos/">Datos</a>
+      <a href="/guia/">Guía de puja</a>
+      <a href="/precios/">Precios</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/#precio" class="cta">Suscribirme</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>¿Hasta cuánto pujar en una subasta judicial?</h1>
+<p class="byline">Por <a href="https://inversionnpl.com/equipo/alonso-orenes/" rel="author">Alonso Orenes</a> · responsable de la plataforma InversionNPL · marco jurídico: <a href="https://inversionnpl.com/equipo/juan-manuel-orenes/">Juan Manuel Orenes Bastida</a>, Orenes &amp; Asociados Abogados · actualizado el 19/08/2026</p>
+<p class="capsula">La puja máxima no sale del tipo de subasta ni de la tasación del edicto: sale del <b>valor real de venta</b> del inmueble, menos todo lo que te costará hacerlo tuyo y venderlo, menos el <b>margen</b> que exiges por el tiempo y el riesgo. Si pujas por encima de ese número, lo que ganas en la subasta lo pierdes después.</p>
+<h2>La fórmula</h2><p><b>Puja máxima = Valor de mercado − Costes de adquisición − Costes de tenencia y venta − Margen objetivo</b></p>
+<ol>
+<li><b>Valor de mercado</b>: lo que pagaría un comprador hoy, según testigos reales de la zona (anuncios comparables por superficie, antigüedad y ubicación). No la tasación de la hipoteca ni el «valor de subasta». Pujable lo calcula con la base de testigos de InversionNPL; a mano, mira 8–10 comparables y usa la mediana del €/m².</li>
+<li><b>Costes de adquisición</b>: ITP sobre el mayor entre tu puja y el <a href="/guia/tipo-de-subasta-tasacion-valor-de-referencia/">valor de referencia catastral</a>, gastos de registro y gestoría, procurador/abogado si los usas, y cargas anteriores que subsistan (el acreedor ejecutante no las limpia). Ver la <a href="https://inversionnpl.com/calculadora-subasta">calculadora de coste real</a>.</li>
+<li><b>Tenencia y venta</b>: comunidad e IBI hasta vender, desocupación si está ocupado (negociada o judicial), reforma mínima, comisión de venta.</li>
+<li><b>Margen</b>: lo que exiges por inmovilizar el capital 6–18 meses y asumir incertidumbre. Un 20–30 % sobre el coste total es un umbral prudente para vivienda; menos, si el lote está vacío y la venta es rápida. Ver <a href="/guia/precio-maximo-de-puja-para-una-tir-objetivo/">precio máximo para una TIR objetivo</a>.</li>
+</ol>
+<h2>Ejemplo</h2><table><tr><th>Partida</th><th>Importe</th></tr><tr><td>Valor de mercado (testigos, mediana)</td><td>150.000 €</td></tr><tr><td>ITP 8 % sobre valor de referencia (120.000 €)</td><td>−9.600 €</td></tr><tr><td>Gastos fijos (registro, gestoría, abogado)</td><td>−3.000 €</td></tr><tr><td>Desocupación estimada</td><td>−4.000 €</td></tr><tr><td>Comunidad, IBI, venta (12 meses)</td><td>−6.000 €</td></tr><tr><td>Margen objetivo (25 % sobre coste total)</td><td>−25.500 €</td></tr><tr><td><b>Puja máxima</b></td><td><b>≈ 102.000 €</b></td></tr></table>
+<p>Si el valor de subasta es 130.000 € y la puja mínima para adjudicarse sin que el ejecutado pueda mejorar es el 70 % (91.000 €), tienes margen entre 91.000 y 102.000 €. Si el valor de subasta fuese 180.000 €, el 70 % (126.000 €) ya supera tu máximo: no pujas, por buena que parezca.</p>
+<h2>Tres errores que hacen sobrepujar</h2><ul><li>Anclarse al «descuento sobre tasación»: la tasación del edicto puede ser de 2007.</li><li>Olvidar que el ITP se calcula sobre el valor de referencia si es mayor que la puja.</li><li>No poner precio a la desocupación y al tiempo.</li></ul>
+<p>Subastados hace este cálculo para cada lote del BOE con tres escenarios (optimista, base, pesimista) y semáforo de riesgo: es el motor <a href="/como-funciona/">Pujable</a>.</p><div class="rel"><b>Sigue leyendo:</b> <a href="/guia/precio-maximo-de-puja-para-una-tir-objetivo/">Precio máximo para una TIR objetivo</a> · <a href="/guia/que-mirar-antes-de-pujar/">Qué mirar antes de pujar</a> · <a href="https://inversionnpl.com/guias/costes-reales-subasta">Costes reales de comprar en subasta (InversionNPL)</a></div>
+<h2>Preguntas relacionadas</h2><h3>¿Puedo pujar por debajo del 70 % del valor de subasta?</h3><p>Sí, pero la adjudicación por debajo del 70 % queda sujeta a las reglas del art. 670 LEC: el ejecutado puede presentar tercero que mejore la postura y el ejecutante puede pedir la adjudicación; por debajo del 50 % el tribunal decide. Pujar bajo es legítimo; adjudicarse bajo es más incierto.</p><h3>¿El valor de subasta es el valor del inmueble?</h3><p>No. Es el tipo fijado para la subasta (normalmente el valor de tasación a efectos de subasta de la escritura de hipoteca, menos cargas anteriores). El valor de mercado real se calcula con testigos actuales.</p>
+<div class="fuentes"><b>Fuentes</b>: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2000-323" rel="noopener" target="_blank">Ley 1/2000, de Enjuiciamiento Civil (texto consolidado, BOE)</a> · <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-76" rel="noopener" target="_blank">Ley Orgánica 1/2025</a> · <a href="https://subastas.boe.es/" rel="noopener" target="_blank">Portal de Subastas de la AEBOE</a> · <a href="https://www.sedecatastro.gob.es/" rel="noopener" target="_blank">Sede Electrónica del Catastro</a> · <a href="https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/" rel="noopener" target="_blank">CGPJ, estadística judicial</a> · <a href="/datos/">Observatorio de subastas de Subastados</a>. Contenido divulgativo; no es asesoramiento jurídico ni de inversión. Los cálculos del motor Pujable son un modelo de decisión, no una tasación oficial.</div>
+<div class="cta-final">
+<b>¿Quieres los números de cada lote hechos?</b> Subastados organiza todas las subastas del BOE y el motor Pujable calcula el valor de mercado, el coste total y el precio máximo de puja para tu rentabilidad objetivo. Prueba de 24 horas a 0 €.
+<br><a class="btn" href="/#precio">Empezar la prueba de 24 h →</a>
+</div>
+</main>
+<footer>
+  <div class="wrap">© Subastados · un producto de <a href="https://inversionnpl.com">InversionNPL</a> · <a href="/como-funciona/">Cómo funciona</a> · <a href="/datos/">Datos</a> · <a href="/guia/">Guía de puja</a> · <a href="/precios/">Precios</a> · <a href="/faq/">FAQ</a> · <a href="https://inversionnpl.com/equipo">Equipo</a> · <a href="https://inversionnpl.com/metodologia">Metodología</a> · <a href="mailto:soporte@inversionnpl.com">soporte@inversionnpl.com</a></div>
+</footer>
+</body>
+</html>
