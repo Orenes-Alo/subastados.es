@@ -49,7 +49,7 @@
     {
       "@type": "Product",
       "name": "Subastas Scraper + Pujable",
-      "description": "Suscripción a las subastas judiciales y notariales del Portal del BOE organizadas y filtrables, con el motor de decisión de puja Pujable (mínimo para adjudicarte, precio máximo de puja para tu TIR objetivo, costes y plazos reales) y guía de formación en PDF incluida.",
+      "description": "Suscripción a las subastas judiciales y notariales del Portal del BOE organizadas y filtrables, con el motor de decisión de puja Pujable (umbrales legales de adjudicación del art. 670 LEC, precio máximo de puja para tu TIR objetivo, costes y plazos reales) y guía de formación en PDF incluida.",
       "brand": { "@type": "Brand", "name": "InversionNPL" },
       "image": "https://subastados.es/og.png",
       "offers": [
@@ -262,17 +262,17 @@
 <section class="hero">
   <div class="wrap">
     <h1>Todas las subastas de España, con el <em>precio máximo que puedes pujar</em> sin perder dinero</h1>
-    <p class="lead">Mientras lees esto, hay subastas del BOE cerrándose. Subastados captura las <b>más de 1.000 subastas judiciales y notariales activas</b>, las ordena por oportunidad, y en la ficha de cada lote el motor <b>Pujable</b> te calcula el mínimo para adjudicarte, el precio máximo para tu rentabilidad objetivo, el coste total real y los plazos. <b>Encontrar la oportunidad y decidir la puja, en la misma pantalla.</b></p>
+    <p class="lead">Mientras lees esto, hay subastas del BOE cerrándose. Subastados captura las <b><span data-kpi="activas-texto">más de 1.000</span> subastas del Portal del BOE activas</b> (judiciales, AEAT, administrativas y notariales), las ordena por oportunidad, y en la ficha de cada lote el motor <b>Pujable</b> te calcula los umbrales legales de adjudicación (70 % de aprobación directa y las reglas del art. 670 LEC según el régimen del lote), el precio máximo para tu rentabilidad objetivo, el coste total real y los plazos. <b>Encontrar la oportunidad y decidir la puja, en la misma pantalla.</b></p>
     <div class="row">
       <a class="btn btn-blue" href="#precio">Suscribirme · 450 €/año</a>
       <a class="btn btn-white" href="#ejemplo">Ver un ejemplo real del motor</a>
       <a class="btn btn-ghost" href="#comparativa">¿Qué me ahorro?</a>
     </div>
     <div class="kpis">
-      <div class="kpi"><b>1.000+</b><span>subastas activas hoy</span></div>
-      <div class="kpi"><b>748</b><span>cesiones detectadas</span></div>
-      <div class="kpi"><b>52</b><span>provincias</span></div>
-      <div class="kpi"><b>semanal</b><span>refresco del BOE</span></div>
+      <div class="kpi"><b data-kpi="activas">1.000+</b><span>subastas activas ahora</span></div>
+      <div class="kpi"><b data-kpi="cesiones">700+</b><span>cesiones de remate en lotes activos</span></div>
+      <div class="kpi"><b>50 + 2</b><span>provincias + Ceuta y Melilla</span></div>
+      <div class="kpi"><b data-kpi="frecuencia">semanal</b><span>actualización desde el BOE</span></div>
     </div>
   </div>
 </section>
@@ -314,8 +314,8 @@
       <div class="veredicto">
         <div style="font-size:18px">⚠️</div>
         <div>
-          <div class="t">PUJAR CON CAUTELA · Mínimo para adjudicarte: 78.127 € · Precio máximo de puja: 98.418 €</div>
-          <div class="d">Pujando el mínimo legal (78.127 €, el 70 % del tipo — art. 670.1 LEC), el motor estima una <b>TIR del 37 %</b> y un <b>beneficio de 42.659 €</b> en el escenario base. En el pesimista la TIR baja al 14,7 %: la orden es pujar solo cerca del mínimo y con el checklist comprobado.</div>
+          <div class="t">PUJAR CON CAUTELA · Aprobación directa: 78.127 € · Precio máximo de puja: 98.418 €</div>
+          <div class="d">Pujando el umbral de aprobación directa (78.127 €, el 70 % del tipo — art. 670.1 LEC; por debajo rigen las reglas de mejora y aprobación del art. 670 según el régimen del lote), el motor estima una <b>TIR del 37 %</b> y un <b>beneficio de 42.659 €</b> en el escenario base. En el pesimista la TIR baja al 14,7 %: la orden es pujar solo cerca de ese umbral y con el checklist comprobado.</div>
         </div>
       </div>
       <div class="ekpis">
@@ -345,7 +345,7 @@
         <span class="chip a">● Cargas: sin importe publicado</span>
       </div>
       <div class="close">
-        <p>Esto mismo lo calculas tú, <b>en un clic y para cualquiera de los 1.000+ lotes activos</b>, con tu TIR objetivo, tus supuestos de reforma y cargas, y borrador de informe en Word. Sin pagar informes sueltos: va incluido en la suscripción.</p>
+        <p>Esto mismo lo calculas tú, <b>en un clic y para cualquiera de los <span data-kpi="activas">1.000+</span> lotes activos</b>, con tu TIR objetivo, tus supuestos de reforma y cargas, y borrador de informe en Word. Sin pagar informes sueltos: va incluido en la suscripción.</p>
         <a class="btn btn-white" href="#precio">Scraper + Pujable · 450 €/año</a>
       </div>
     </div>
@@ -362,9 +362,9 @@
         <thead><tr><th style="width:17%"> </th><th style="width:41.5%;color:var(--muted)">A mano en el BOE</th><th class="motor" style="width:41.5%">Con Subastados (Scraper + Pujable)</th></tr></thead>
         <tbody>
           <tr><td class="aspecto">Encontrar la subasta</td><td class="mano"><span class="x">✕</span>Navegar el Portal del BOE lote a lote, con una búsqueda pobre y sin fotos. Horas cada semana para no perderte nada.</td><td class="motor"><span class="v">✓</span>Las 1.000+ subastas activas capturadas y organizadas: filtros por provincia, valor, tipo, cierre y foto del catastro en cada tarjeta.</td></tr>
-          <tr><td class="aspecto">Por dónde empezar</td><td class="mano"><span class="x">✕</span>Sin ningún criterio: todas las subastas parecen iguales hasta que las estudias una a una.</td><td class="motor"><span class="v">✓</span>Ordenadas por probabilidad de quedar desiertas (modelo IA) y score de cesión de remate 0-100: las mejores oportunidades, arriba.</td></tr>
+          <tr><td class="aspecto">Por dónde empezar</td><td class="mano"><span class="x">✕</span>Sin ningún criterio: todas las subastas parecen iguales hasta que las estudias una a una.</td><td class="motor"><span class="v">✓</span>Ordenadas por probabilidad de quedar desiertas (modelo LightGBM calibrado sobre el histórico de subastas concluidas) y score de cesión de remate 0-100: las mejores oportunidades, arriba.</td></tr>
           <tr><td class="aspecto">Valor real del inmueble</td><td class="mano"><span class="x">✕</span>La tasación del edicto, que puede venir desfasada, inflada o directamente a 0 €.</td><td class="motor"><span class="v">✓</span>Valor de mercado con testigos reales de la zona (179.000+ anuncios) en horquilla + precio de cierre estimado.</td></tr>
-          <tr><td class="aspecto">Cuánto pujar</td><td class="mano"><span class="x">✕</span>Intuición. Ni el mínimo que necesitas para adjudicarte ni el máximo que puedes pagar sin perder dinero.</td><td class="motor"><span class="v">✓</span>Mínimo legal para adjudicarte (art. 670 LEC) y precio máximo de puja para tu TIR objetivo, en 3 escenarios.</td></tr>
+          <tr><td class="aspecto">Cuánto pujar</td><td class="mano"><span class="x">✕</span>Intuición. Ni el umbral del 70 % que garantiza la adjudicación ni el máximo que puedes pagar sin perder dinero.</td><td class="motor"><span class="v">✓</span>Mínimo legal para adjudicarte (art. 670 LEC) y precio máximo de puja para tu TIR objetivo, en 3 escenarios.</td></tr>
           <tr><td class="aspecto">Costes reales</td><td class="mano"><span class="x">✕</span>Las sorpresas llegan después: ITP, posesión, cargas que subsisten, comunidad, reforma…</td><td class="motor"><span class="v">✓</span>Coste total calculado antes de pujar: judicial, fiscal por tu CCAA, posesión, reforma y venta.</td></tr>
           <tr><td class="aspecto">Plazos</td><td class="mano"><span class="x">✕</span>Nadie te dice cuánto tarda ese juzgado ni cuánto tardarás en vender en esa zona.</td><td class="motor"><span class="v">✓</span>Duración del juzgado concreto (datos CGPJ) + tiempo de venta en la zona = meses hasta liquidez, por escenario.</td></tr>
           <tr><td class="aspecto">Riesgos</td><td class="mano"><span class="x">✕</span>Ocupación, VPO o cargas se descubren cuando ya es tarde.</td><td class="motor"><span class="v">✓</span>Semáforo de riesgo con avisos: posesión, cargas, VPO, confianza de la valoración, probabilidad de desierta.</td></tr>
@@ -383,10 +383,10 @@
     <h2>Más que un listado: una herramienta de selección y decisión</h2>
     <p class="sub">Todo lo que necesitas desde que se publica la subasta hasta que decides tu puja máxima.</p>
     <div class="features">
-      <div class="feature"><div class="ico">⚖️</div><h3>Motor de puja Pujable · incluido</h3><p>En la ficha de cada lote: mínimo para adjudicarte, precio máximo para tu TIR objetivo en 3 escenarios, coste total real, plazos por juzgado y semáforo de riesgo. Con borrador de informe en Word.</p></div>
-      <div class="feature"><div class="ico">📉</div><h3>Predicción IA · subasta desierta</h3><p>Un modelo de Machine Learning estima, para cada subasta abierta, la probabilidad de que quede desierta, con su explicación. Ordena por ese riesgo y detecta antes las oportunidades.</p></div>
+      <div class="feature"><div class="ico">⚖️</div><h3>Motor de puja Pujable · incluido</h3><p>En la ficha de cada lote: umbrales legales de adjudicación (70 % de aprobación directa y reglas del art. 670 LEC, con el régimen LO 1/2025 o anterior detectado por el depósito del edicto), precio máximo para tu TIR objetivo en 3 escenarios, coste total real, plazos por juzgado y semáforo de riesgo. Con borrador de informe en Word.</p></div>
+      <div class="feature"><div class="ico">📉</div><h3>Predicción de subasta desierta · LightGBM</h3><p>Un modelo LightGBM calibrado, entrenado sobre el histórico de subastas concluidas con resultado, estima, para cada subasta abierta, la probabilidad de que quede desierta, con su explicación. Ordena por ese riesgo y detecta antes las oportunidades.</p></div>
       <div class="feature"><div class="ico">✨</div><h3>Cesiones de remate</h3><p>Clasificador transparente 0-100: catastro, dirección, tipo de activo, tasación, tipo de subasta y red flags. 748 detectadas ahora mismo.</p></div>
-      <div class="feature"><div class="ico">📍</div><h3>Filtros por provincia</h3><p>Las 52 provincias, con conteos en vivo de lotes activos y cesiones por cada una. Más filtros financieros: tasación, score, tipo, «solo cesión de remate».</p></div>
+      <div class="feature"><div class="ico">📍</div><h3>Filtros por provincia</h3><p>Toda España — las 50 provincias más Ceuta y Melilla — con conteos en vivo de lotes activos y cesiones por cada una. Más filtros financieros: tasación, score, tipo, «solo cesión de remate».</p></div>
       <div class="feature"><div class="ico">📋</div><h3>Ficha completa de cada lote</h3><p>Dirección, código postal, catastro, IDUFIR, cargas, situación posesoria, tasación, puja mínima, depósito y foto de fachada oficial del catastro.</p></div>
       <div class="feature"><div class="ico">📤</div><h3>Export CSV</h3><p>Descarga el listado filtrado para llevarlo a Excel o a tu propio modelo de valoración.</p></div>
       <div class="feature"><div class="ico">📘</div><h3>Guía de puja del BOE · incluida</h3><p>Guía práctica en PDF: identificación digital, depósitos (reforma LO 1/2025), lectura del edicto, due diligence, fiscalidad y checklist final antes de pujar.</p></div>
@@ -405,7 +405,7 @@
         <div class="tier">Anual</div>
         <div class="amt">450 €<small>/año</small></div>
         <ul>
-          <li>1.000+ subastas del BOE, filtrables y exportables</li>
+          <li><span data-kpi="activas">1.000+</span> subastas del BOE, filtrables y exportables</li>
           <li>Motor de puja Pujable en cada lote, sin límite de usos</li>
           <li>Predicción de desiertas + cesiones de remate</li>
           <li>Borrador de informe en Word</li>
@@ -545,6 +545,19 @@
       })
       .catch(function(){ show(msgId, false, 'Error de conexión. Inténtalo de nuevo en unos segundos.'); });
   };
+})();
+</script>
+<script>
+(function(){
+  // Cifras vivas: la misma fuente que el Observatorio (/datos/datos.json).
+  var nf = new Intl.NumberFormat('es-ES');
+  fetch('/datos/datos.json', { cache: 'no-store' }).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+    if (!d || !d.tot) return;
+    var set = function(k, v){ document.querySelectorAll('[data-kpi="' + k + '"]').forEach(function(el){ el.textContent = v; }); };
+    if (d.tot.activas) { set('activas', nf.format(d.tot.activas)); set('activas-texto', nf.format(d.tot.activas)); }
+    if (d.tot.cesion_remate_activas) set('cesiones', nf.format(d.tot.cesion_remate_activas));
+    if (d.actualizacion && d.actualizacion.frecuencia) set('frecuencia', d.actualizacion.frecuencia);
+  }).catch(function(){});
 })();
 </script>
 </body>

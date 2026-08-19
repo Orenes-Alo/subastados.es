@@ -84,7 +84,7 @@
 </header>
 <main class="wrap">
 <h1>Cómo funciona Subastados: del edicto del BOE al precio máximo de puja</h1>
-<p class="capsula">Subastados lee las subastas del Portal del BOE, valora cada inmueble con testigos reales de su zona, suma el coste total de adquisición (ITP de la comunidad, posesión, gastos), estima el plazo con datos del CGPJ del partido judicial concreto y te devuelve dos números por lote: el mínimo para adjudicarte y el precio máximo de puja para tu rentabilidad objetivo.</p>
+<p class="capsula">Subastados lee las subastas del Portal del BOE, valora cada inmueble con testigos reales de su zona, suma el coste total de adquisición (ITP de la comunidad, posesión, gastos), estima el plazo con datos del CGPJ del partido judicial concreto y te devuelve dos números por lote: el umbral de aprobación directa (70 % del valor de subasta, art. 670.1 LEC, con los demás umbrales del art. 670 según el régimen del lote) y el precio máximo de puja para tu rentabilidad objetivo.</p>
 <p>Cualquiera puede abrir subastas.boe.es gratis. El problema nunca ha sido ver las subastas: es saber, para cada una, <b>hasta cuánto pujar</b>. Eso exige valorar el inmueble, calcular todos los costes, estimar cuánto tardarás en venderlo y descontarlo todo a una rentabilidad razonable — un trabajo de horas por lote que el motor hace en segundos. Así, paso a paso:</p>
 
 <div class="paso">
@@ -113,8 +113,8 @@
 
 <div class="paso">
 <h2><span class="num">5</span> La respuesta: mínimo, máximo y semáforo</h2>
-<p>Con todo lo anterior, el motor descuenta tres escenarios (base, optimista, pesimista) y devuelve el veredicto: el <b>mínimo legal para adjudicarte</b>, el <b>precio máximo de puja</b> que mantiene tu TIR objetivo y un semáforo de riesgo con la orden clara.</p>
-<div class="ejemplo">Marbella: <b>PUJAR CON CAUTELA</b> · mínimo para adjudicarte <b>78.127 €</b> (el 70 % del tipo, art. 670.1 LEC) · precio máximo de puja <b>98.418 €</b> (TIR 15 %). Pujando el mínimo, beneficio estimado de <b>42.659 €</b> en el escenario base; en el pesimista la TIR baja al 14,7 % — la orden es pujar solo cerca del mínimo.</div>
+<p>Con todo lo anterior, el motor descuenta tres escenarios (base, optimista, pesimista) y devuelve el veredicto: el <b>umbral de aprobación directa</b> (70 % del valor de subasta, art. 670.1 LEC; por debajo, las reglas de mejora y aprobación del art. 670 según el régimen del lote —LO 1/2025 o anterior— que el motor detecta por el depósito del edicto), el <b>precio máximo de puja</b> que mantiene tu TIR objetivo y un semáforo de riesgo con la orden clara.</p>
+<div class="ejemplo">Marbella: <b>PUJAR CON CAUTELA</b> · umbral de aprobación directa <b>78.127 €</b> (el 70 % del tipo, art. 670.1 LEC) · precio máximo de puja <b>98.418 €</b> (TIR 15 %). Pujando ese umbral, beneficio estimado de <b>42.659 €</b> en el escenario base; en el pesimista la TIR baja al 14,7 % — la orden es pujar solo cerca del umbral.</div>
 </div>
 
 <h2>Lo que el motor NO es</h2>
