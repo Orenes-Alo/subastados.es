@@ -136,6 +136,36 @@
   .scard .lock{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.03) 0%,rgba(15,23,42,.45) 100%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:14px}
   .scard .lock span{background:rgba(255,255,255,.95);padding:6px 14px;border-radius:999px;font-size:11px;font-weight:700;color:var(--ink);box-shadow:0 4px 12px rgba(0,0,0,.15)}
   .badge-cesion{position:absolute;top:10px;left:10px;background:var(--amber);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px;letter-spacing:.04em}
+  /* Lotes destacados (motor precomputado) */
+  .grid-lotes{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:16px}
+  .lcard{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s;text-decoration:none;color:inherit}
+  .lcard:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,23,42,.12)}
+  .lcard .media{position:relative;height:170px;background:#E2E8F0}
+  .lcard .media img{width:100%;height:100%;object-fit:cover;display:block}
+  .lcard .chips{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:6px;flex-wrap:wrap}
+  .lcard .chip{font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px;letter-spacing:.04em;color:#fff;white-space:nowrap}
+  .lcard .chip.id{background:rgba(15,23,42,.75)} .lcard .chip.ces{background:#D97706} .lcard .chip.tipo{background:rgba(37,99,235,.92)}
+  .lcard .cap{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;background:linear-gradient(180deg,rgba(15,23,42,0) 0%,rgba(15,23,42,.85) 100%);color:#fff}
+  .lcard .cap b{display:block;font-size:15px;font-weight:800;line-height:1.2;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+  .lcard .cap span{font-size:11.5px;opacity:.9}
+  .lcard .tri{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+  .lcard .tri div{padding:8px 6px;text-align:center;border-left:1px solid var(--line)} .lcard .tri div:first-child{border-left:none}
+  .lcard .tri b{display:block;color:var(--ink);font-size:12.5px;font-weight:700}
+  .lcard .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .lcard .top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+  .lcard .big{font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+  .lcard .lbl{font-size:11px;color:var(--muted)}
+  .lcard .margen{text-align:right;border-radius:10px;padding:6px 10px;font-variant-numeric:tabular-nums}
+  .lcard .margen.pos{background:rgba(22,163,74,.12);border:1px solid rgba(22,163,74,.35);color:#15803D} .lcard .margen.neg{background:rgba(220,38,38,.10);border:1px solid rgba(220,38,38,.3);color:#B91C1C}
+  .lcard .margen small{display:block;font-size:10.5px;font-weight:700} .lcard .margen b{font-size:14px;font-weight:800}
+  .lcard .row{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:var(--body)}
+  .lcard .row b{color:var(--ink)} .lcard .blur{filter:blur(4px);user-select:none;letter-spacing:.05em;font-weight:800;color:var(--ink)}
+  .lcard .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .lcard .dec{font-size:11px;font-weight:800;padding:5px 10px;border-radius:8px;letter-spacing:.03em}
+  .lcard .dec.pujar{background:rgba(22,163,74,.12);color:#15803D} .lcard .dec.pujar_con_cautela{background:rgba(245,158,11,.14);color:#B45309} .lcard .dec.no_pujar{background:rgba(220,38,38,.12);color:#B91C1C} .lcard .dec.sin_datos{background:rgba(100,116,139,.12);color:#64748B}
+  .lcard .cta{font-size:11.5px;color:var(--blue);font-weight:700}
+  .lcard .nota{font-size:10.5px;color:var(--muted)}
+  .lotes-nota{font-size:12.5px;color:var(--muted);margin-top:12px}
 
   /* Ejemplo Pujable */
   .ejemplo{background:linear-gradient(120deg,var(--navy) 0%,var(--navy2) 130%);border-radius:18px;padding:28px;color:#fff;box-shadow:0 16px 40px rgba(15,23,42,.25)}
@@ -279,10 +309,12 @@
 
 <section id="en-vivo">
   <div class="wrap">
-    <div class="eyebrow">Subastas reales · ahora mismo en el BOE</div>
-    <h2>Estas son las que verías tras suscribirte</h2>
+    <div class="eyebrow">Subastas reales · abiertas ahora mismo en el BOE</div>
+    <h2>Esto es lo que verías tras suscribirte: lotes reales con el motor ya calculado</h2>
     <p class="sub">Muestra en vivo del feed real (con foto oficial del catastro cuando el lote tiene referencia). Dentro: filtros por provincia, tipo, valor y cierre, score de cesión de remate, probabilidad de quedar desierta y export a CSV.</p>
+    <div id="grid-lotes" class="grid-lotes" style="display:none"></div>
     <div id="grid-subastas" class="grid-subastas"><div style="color:var(--muted);font-size:14px">Cargando subastas en directo del BOE…</div></div>
+    <p class="lotes-nota" id="lotes-nota" style="display:none">Lotes reales y abiertos del Portal de Subastas del BOE, con foto oficial del Catastro y el motor Pujable ya calculado: umbral de aprobación directa (70 % del valor de subasta, art. 670.1 LEC, con el régimen LO 1/2025 o anterior detectado por el depósito del edicto), probabilidad de subasta desierta (modelo LightGBM), margen sobre el valor de mercado de testigos y veredicto. El precio máximo de puja para tu TIR objetivo se desbloquea con la suscripción. Selección renovada cada semana.</p>
   </div>
 </section>
 
@@ -498,13 +530,53 @@
     history.replaceState(null, '', location.pathname);
   }
 
-  // Subastas en vivo (feed público, mismas cards que dentro)
+  // Lotes destacados (motor Pujable precomputado, misma fuente que el paywall de inversionnpl)
   var eur = function(n){ return n == null ? '—' : Math.round(n).toLocaleString('es-ES') + ' €'; };
+  var esc = function(t){ return String(t == null ? '' : t).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  var DEC = { pujar: 'PUJAR', pujar_con_cautela: 'PUJAR CON CAUTELA', no_pujar: 'NO PUJAR', sin_datos: 'SIN DATOS' };
+  var usarPreviewViejo = true;
+  fetch('/datos/lotes.json', { cache: 'no-store' })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      var lotes = (d && d.lotes) || [];
+      if (!lotes.length) return;
+      usarPreviewViejo = false;
+      var grid = document.getElementById('grid-lotes');
+      grid.innerHTML = '';
+      lotes.forEach(function(l){
+        var card = document.createElement('a');
+        card.className = 'lcard'; card.href = '#precio';
+        var reg = l.regimenLec === 'lo_1_2025' ? 'LO 1/2025' : l.regimenLec === 'anterior' ? 'Anterior' : '—';
+        var margen = (l.margenMercado != null && l.valorMercado != null)
+          ? '<div class="margen ' + (l.margenMercado >= 0 ? 'pos' : 'neg') + '"><small>Margen s/ mercado</small><b>' + (l.margenMercado >= 0 ? '+' : '−') + eur(Math.abs(l.margenMercado)) + '</b></div>' : '';
+        card.innerHTML =
+          '<div class="media">' +
+            (l.tieneFoto ? '<img loading="lazy" alt="Fachada · ' + esc(l.titulo) + '" src="/datos/foto/' + encodeURIComponent(l.subId) + '.jpg" onerror="this.style.display=\'none\'">' : '') +
+            '<div class="chips"><span class="chip id">' + esc(l.subId) + '</span>' + (l.isCesionRemate ? '<span class="chip ces">CESIÓN DE REMATE</span>' : '') + '<span class="chip tipo">' + esc(String(l.tipo || 'Inmueble').toUpperCase()) + '</span></div>' +
+            '<div class="cap"><b>' + esc(l.titulo) + '</b><span>📍 ' + esc(l.provincia || '—') + (l.diasCierre != null ? ' · ⏱ cierra en ' + l.diasCierre + ' d' : '') + '</span></div>' +
+          '</div>' +
+          '<div class="tri"><div><b>' + (l.superficieM2 ? Math.round(l.superficieM2) + ' m²' : '—') + '</b>Superficie</div><div><b>' + eur(l.valorSubasta) + '</b>Valor de subasta</div><div><b>' + reg + '</b>Régimen LEC</div></div>' +
+          '<div class="body">' +
+            '<div class="top"><div><div class="big">' + eur(l.umbralDirecto) + '</div><div class="lbl">Umbral de aprobación directa (70 % del tipo)</div></div>' + margen + '</div>' +
+            '<div class="row"><span>Precio máximo de puja</span><span><span class="blur">••.••• €</span> 🔒</span></div>' +
+            '<div class="row"><span>P(desierta) · modelo</span><b>' + (l.probDesierta == null ? '—' : Math.round(l.probDesierta * 100) + ' %') + '</b></div>' +
+            '<div class="foot"><span class="dec ' + esc(l.decision) + '">' + (DEC[l.decision] || 'SIN DATOS') + '</span><span class="cta">Ver el veredicto completo →</span></div>' +
+            (l.valorMercado != null ? '<div class="nota">Valor de mercado por testigos: ' + eur(l.valorMercado) + ' (confianza ' + esc(l.valorMercadoConfianza || '—') + ')</div>' : '') +
+          '</div>';
+        grid.appendChild(card);
+      });
+      grid.style.display = 'grid';
+      document.getElementById('grid-subastas').style.display = 'none';
+      document.getElementById('lotes-nota').style.display = 'block';
+    })
+    .catch(function(){});
+
+  // Fallback: feed antiguo (sin motor) si aún no hay lotes destacados calculados
   fetch(API + '/subastas/preview')
     .then(function(r){ return r.json(); })
     .then(function(d){
       var items = (d && d.items) || [];
-      if (!items.length) return;
+      if (!items.length || !usarPreviewViejo) return;
       var grid = document.getElementById('grid-subastas');
       grid.innerHTML = '';
       items.slice(0, 8).forEach(function(s){
