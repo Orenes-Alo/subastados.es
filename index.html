@@ -173,9 +173,11 @@
   .lcard .nota{font-size:10.5px;color:var(--muted)}
   .lotes-nota{font-size:12.5px;color:var(--muted);margin-top:12px}
 
-  /* Alertas gratis (captura de leads) */
-  .alertas{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 130%);border-radius:18px;padding:34px 28px;color:#fff;position:relative;overflow:hidden;box-shadow:0 16px 40px rgba(15,23,42,.25)}
-  .alertas::before{content:"";position:absolute;top:-140px;right:-100px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.30) 0%,transparent 65%);filter:blur(38px);pointer-events:none}
+  /* Alertas gratis (captura de leads) — continúa el fondo navy del pricing;
+     tarjeta de cristal como las .price-card para no romper el bloque oscuro */
+  #alertas{background:var(--navy)}
+  .alertas{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:34px 28px;color:#fff;position:relative;overflow:hidden}
+  .alertas::before{content:"";position:absolute;top:-90px;right:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.14) 0%,transparent 65%);filter:blur(30px);pointer-events:none}
   .alertas>*{position:relative;z-index:1}
   .alertas h2{color:#fff}
   .alertas .sub{color:#CBD5E1;margin-bottom:18px}
