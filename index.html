@@ -529,7 +529,7 @@
     <div class="alertas">
       <div class="eyebrow" style="color:var(--amber-l)">¿Aún no lo tienes claro? Empieza gratis</div>
       <h2>Recibe gratis las mejores subastas de la semana</h2>
-      <p class="sub">Cada semana seleccionamos con el motor Pujable los lotes con mejor pinta del BOE. Déjanos tu email y te los mandamos — sin compromiso y sin tarjeta. Cuando quieras el motor completo, ya sabes dónde está.</p>
+      <p class="sub">Cada semana seleccionamos con el motor Pujable los lotes con mejor pinta del BOE. Déjanos tu email y te los mandamos cada martes por la mañana — sin compromiso y sin tarjeta. Cuando quieras el motor completo, ya sabes dónde está.</p>
       <div class="form">
         <input type="email" id="email-alertas" placeholder="tu@email.com" autocomplete="email">
         <button class="btn btn-gold" onclick="altaAlertas()">Recibirlas gratis</button>
@@ -653,27 +653,22 @@
       .catch(function(){ show(msgId, false, 'Error de conexión. Inténtalo de nuevo en unos segundos.'); });
   };
 
-  // Alta en las alertas semanales gratuitas (captura de leads). Reutiliza el
-  // endpoint público /contact de InversionNPL: el alta queda persistida y
-  // visible para el equipo en Admin → Usuarios → Contacto web, además del
-  // email de aviso a operaciones@.
+  // Alta en las alertas semanales gratuitas: endpoint dedicado de
+  // InversionNPL (lista subastas_alerta con baja de 1 clic). El backend
+  // envía cada martes 09:00 los lotes destacados del motor Pujable.
   window.altaAlertas = function(){
     var inp = document.getElementById('email-alertas');
     var msg = document.getElementById('m-alertas');
     var email = (inp.value || '').trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = 'Escribe un email válido.'; msg.className = 'msg err'; inp.focus(); return; }
     msg.textContent = 'Apuntándote…'; msg.className = 'msg';
-    fetch(API + '/contact', {
+    fetch(API + '/public/subastas-alertas', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: 'Alertas de subastas (subastados.es)',
-        email: email,
-        message: 'Alta en las alertas semanales gratuitas de subastas desde la landing de subastados.es.'
-      })
+      body: JSON.stringify({ email: email })
     })
       .then(function(r){ if (!r.ok) throw 0; return r.json(); })
-      .then(function(){ msg.textContent = '¡Hecho! Te llegarán las mejores subastas de la semana.'; msg.className = 'msg ok'; inp.value = ''; })
+      .then(function(){ msg.textContent = '¡Hecho! Cada martes por la mañana te llegarán las mejores subastas de la semana.'; msg.className = 'msg ok'; inp.value = ''; })
       .catch(function(){ msg.textContent = 'No se pudo completar el alta. Inténtalo de nuevo en un momento.'; msg.className = 'msg err'; });
   };
 })();
