@@ -79,6 +79,7 @@
     --ink:#0F172A; --body:#334155; --muted:#64748B; --line:#E2E8F0;
     --bg:#F8FAFC; --white:#FFFFFF; --green:#059669; --green-l:#34D399;
     --red:#DC2626; --amber:#D97706; --amber-l:#FBBF24;
+    --gold:#F5A623; --gold-d:#C77F00; --gold-ink:#2A1B02;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -99,15 +100,18 @@
   nav{display:flex;gap:22px;align-items:center}
   nav a{color:#CBD5E1;text-decoration:none;font-size:14px;font-weight:500}
   nav a:hover{color:#fff}
-  nav a.cta{background:var(--blue);color:#fff;padding:9px 16px;border-radius:10px;font-weight:700}
+  nav a.cta{background:linear-gradient(135deg,var(--amber-l),var(--gold-d));color:var(--gold-ink);padding:9px 16px;border-radius:10px;font-weight:800}
   @media(max-width:760px){nav a:not(.cta){display:none}}
 
   /* Banner pago */
   .banner{display:none;background:#ECFDF5;border-bottom:1px solid #A7F3D0;color:#065F46;padding:12px 20px;text-align:center;font-size:14px;font-weight:600}
   .banner.warn{background:#FFFBEB;border-color:#FDE68A;color:#92400E}
 
-  /* Hero */
-  .hero{background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 120%);color:#fff;padding:80px 0 64px}
+  /* Hero — navy profundo con halos (dorado arriba-dcha, azul abajo-izda) */
+  .hero{background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 120%);color:#fff;padding:80px 0 64px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-200px;right:-140px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.26) 0%,transparent 65%);filter:blur(46px);pointer-events:none}
+  .hero::after{content:"";position:absolute;bottom:-240px;left:-160px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(96,165,250,.20) 0%,transparent 65%);filter:blur(52px);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
   .hero h1{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1.12;max-width:820px}
   .hero h1 em{font-style:normal;color:var(--blue-l)}
   .hero .lead{font-size:18px;color:#CBD5E1;max-width:740px;margin:18px 0 28px}
@@ -115,11 +119,13 @@
   .row{display:flex;gap:12px;flex-wrap:wrap}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
   .btn-blue{background:var(--blue);color:#fff;box-shadow:0 8px 24px rgba(37,99,235,.35)}
+  .btn-gold{background:linear-gradient(135deg,var(--amber-l) 0%,var(--gold) 55%,var(--gold-d) 100%);color:var(--gold-ink);box-shadow:0 10px 30px rgba(245,166,35,.38);text-shadow:none}
+  .btn-gold:hover{filter:brightness(1.06)}
   .btn-white{background:#fff;color:var(--navy)}
   .btn-ghost{background:transparent;color:#CBD5E1;border:1.5px solid rgba(255,255,255,.25)}
   .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
   .kpi{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px;text-align:center}
-  .kpi b{display:block;font-size:24px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+  .kpi b{display:block;font-size:24px;font-weight:800;color:var(--amber-l);font-variant-numeric:tabular-nums}
   .kpi span{font-size:11px;color:#94A3B8;text-transform:uppercase;letter-spacing:.06em}
   @media(max-width:760px){.hero h1{font-size:32px}.kpis{grid-template-columns:repeat(2,1fr)}}
 
@@ -166,6 +172,19 @@
   .lcard .cta{font-size:11.5px;color:var(--blue);font-weight:700}
   .lcard .nota{font-size:10.5px;color:var(--muted)}
   .lotes-nota{font-size:12.5px;color:var(--muted);margin-top:12px}
+
+  /* Alertas gratis (captura de leads) */
+  .alertas{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 130%);border-radius:18px;padding:34px 28px;color:#fff;position:relative;overflow:hidden;box-shadow:0 16px 40px rgba(15,23,42,.25)}
+  .alertas::before{content:"";position:absolute;top:-140px;right:-100px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.30) 0%,transparent 65%);filter:blur(38px);pointer-events:none}
+  .alertas>*{position:relative;z-index:1}
+  .alertas h2{color:#fff}
+  .alertas .sub{color:#CBD5E1;margin-bottom:18px}
+  .alertas .form{display:flex;gap:10px;flex-wrap:wrap;max-width:560px}
+  .alertas input{flex:1;min-width:220px;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-size:15px;font-family:inherit}
+  .alertas input::placeholder{color:#94A3B8}
+  .alertas .fine2{font-size:11.5px;color:#94A3B8;margin-top:10px}
+  .alertas .msg{margin-top:10px;font-size:13.5px;font-weight:600}
+  .alertas .msg.ok{color:var(--green-l)} .alertas .msg.err{color:#FCA5A5}
 
   /* Ejemplo Pujable */
   .ejemplo{background:linear-gradient(120deg,var(--navy) 0%,var(--navy2) 130%);border-radius:18px;padding:28px;color:#fff;box-shadow:0 16px 40px rgba(15,23,42,.25)}
@@ -294,7 +313,7 @@
     <h1>Todas las subastas de España, con el <em>precio máximo que puedes pujar</em> sin perder dinero</h1>
     <p class="lead">Mientras lees esto, hay subastas del BOE cerrándose. Subastados captura las <b><span data-kpi="activas-texto">más de 1.000</span> subastas del Portal del BOE activas</b> (judiciales, AEAT, administrativas y notariales), las ordena por oportunidad, y en la ficha de cada lote el motor <b>Pujable</b> te calcula los umbrales legales de adjudicación (70 % de aprobación directa y las reglas del art. 670 LEC según el régimen del lote), el precio máximo para tu rentabilidad objetivo, el coste total real y los plazos. <b>Encontrar la oportunidad y decidir la puja, en la misma pantalla.</b></p>
     <div class="row">
-      <a class="btn btn-blue" href="#precio">Suscribirme · 450 €/año</a>
+      <a class="btn btn-gold" href="#precio">Suscribirme · 450 €/año</a>
       <a class="btn btn-white" href="#ejemplo">Ver un ejemplo real del motor</a>
       <a class="btn btn-ghost" href="#comparativa">¿Qué me ahorro?</a>
     </div>
@@ -446,7 +465,7 @@
         </ul>
         <div class="paybox">
           <input type="email" id="email-year" placeholder="tu@email.com" autocomplete="email">
-          <button class="btn btn-blue" onclick="checkout('year')">Pagar 450 €/año</button>
+          <button class="btn btn-gold" onclick="checkout('year')">Pagar 450 €/año</button>
         </div>
         <div class="msg" id="m-year"></div>
       </div>
@@ -502,6 +521,22 @@
     <details><summary>¿De dónde salen los datos?</summary><p>Portal de Subastas del BOE y procuradores, Catastro, más de 179.000 testigos de mercado, duración de los juzgados (CGPJ), aranceles y LEC, fiscalidad por comunidad autónoma y los modelos propios de InversionNPL (predicción de desiertas, cesión de remate).</p></details>
     <details><summary>¿Puedo cancelar?</summary><p>Sí, en cualquier momento desde tu perfil en la plataforma; mantienes el acceso hasta el final del periodo pagado. El plan mensual no tiene permanencia.</p></details>
     <details><summary>¿Esto sustituye a mi asesoramiento jurídico?</summary><p>No. Es una herramienta de análisis para decidir mejor y más rápido; para pujas concretas te recomendamos revisar el checklist del informe y, si lo necesitas, apoyarte en el equipo jurídico de InversionNPL.</p></details>
+  </div>
+</section>
+
+<section id="alertas" style="padding-top:0">
+  <div class="wrap">
+    <div class="alertas">
+      <div class="eyebrow" style="color:var(--amber-l)">¿Aún no lo tienes claro? Empieza gratis</div>
+      <h2>Recibe gratis las mejores subastas de la semana</h2>
+      <p class="sub">Cada semana seleccionamos con el motor Pujable los lotes con mejor pinta del BOE. Déjanos tu email y te los mandamos — sin compromiso y sin tarjeta. Cuando quieras el motor completo, ya sabes dónde está.</p>
+      <div class="form">
+        <input type="email" id="email-alertas" placeholder="tu@email.com" autocomplete="email">
+        <button class="btn btn-gold" onclick="altaAlertas()">Recibirlas gratis</button>
+      </div>
+      <div class="msg" id="m-alertas"></div>
+      <p class="fine2">Solo subastas, nada de spam. Te das de baja con un clic en cualquier email.</p>
+    </div>
   </div>
 </section>
 
@@ -616,6 +651,30 @@
         else { show(msgId, false, x.j.message || x.j.error || 'No se pudo iniciar el pago. Inténtalo de nuevo.'); }
       })
       .catch(function(){ show(msgId, false, 'Error de conexión. Inténtalo de nuevo en unos segundos.'); });
+  };
+
+  // Alta en las alertas semanales gratuitas (captura de leads). Reutiliza el
+  // endpoint público /contact de InversionNPL: el alta queda persistida y
+  // visible para el equipo en Admin → Usuarios → Contacto web, además del
+  // email de aviso a operaciones@.
+  window.altaAlertas = function(){
+    var inp = document.getElementById('email-alertas');
+    var msg = document.getElementById('m-alertas');
+    var email = (inp.value || '').trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = 'Escribe un email válido.'; msg.className = 'msg err'; inp.focus(); return; }
+    msg.textContent = 'Apuntándote…'; msg.className = 'msg';
+    fetch(API + '/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: 'Alertas de subastas (subastados.es)',
+        email: email,
+        message: 'Alta en las alertas semanales gratuitas de subastas desde la landing de subastados.es.'
+      })
+    })
+      .then(function(r){ if (!r.ok) throw 0; return r.json(); })
+      .then(function(){ msg.textContent = '¡Hecho! Te llegarán las mejores subastas de la semana.'; msg.className = 'msg ok'; inp.value = ''; })
+      .catch(function(){ msg.textContent = 'No se pudo completar el alta. Inténtalo de nuevo en un momento.'; msg.className = 'msg err'; });
   };
 })();
 </script>
